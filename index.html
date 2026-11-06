@@ -305,6 +305,58 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .share-row{display:flex;gap:8px;flex-wrap:wrap}
 .share-row .btn{font-family:var(--f-body);font-size:16px}
 
+/* ---------- Editar el plan del día ---------- */
+.day-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:-4px 0 6px;flex-wrap:wrap}
+.day-tools .hint{font-size:14px;color:var(--muted);flex:1;min-width:180px}
+.pill{border:0;font:inherit;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;min-height:40px;border-radius:999px;cursor:pointer;
+  background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--frame)}
+.pill svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pill.dark{background:var(--ink);color:#FBF7F0;box-shadow:none}
+.pill.soft{background:transparent;box-shadow:none;color:var(--muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;padding-inline:6px}
+.steps li.go{cursor:pointer;border-radius:var(--r-sm)}
+.steps li.go b::after{content:"›";margin-left:6px;color:var(--rosso);font-weight:600}
+.steps li.go:active{background:color-mix(in srgb,var(--day,var(--hair)) 18%,transparent)}
+.steps.editing li.fixed{opacity:.5}
+.steps.editing li.fixed b::before{content:"🔒 ";font-size:12px}
+.steps li.new{animation:flash 1.4s ease}
+@keyframes flash{0%{background:color-mix(in srgb,var(--day,#E9B2A4) 55%,transparent)}100%{background:transparent}}
+.st-edit{display:flex;gap:6px;margin-top:8px;flex-wrap:nowrap;align-items:center}
+.st-edit input[type=time]{font:inherit;font-size:15px;padding:5px 6px;width:96px;max-width:96px;border:0;box-shadow:0 0 0 1px var(--frame);border-radius:var(--r-sm);background:var(--surface);min-height:36px;color:var(--ink)}
+.st-edit button{border:0;font:inherit;font-size:14px;font-weight:600;padding:6px 10px;white-space:nowrap;min-height:36px;border-radius:var(--r-sm);cursor:pointer;background:var(--surface);box-shadow:0 0 0 1px var(--frame);color:var(--ink)}
+.st-edit button.rm{color:var(--rosso);width:40px;padding:0;display:grid;place-items:center}
+.st-edit button.rm svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.day-add{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.day-add .pill{flex:1;justify-content:center;min-width:150px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* selector de planes */
+.picker{z-index:70}
+.pk-ctx{font-size:16px;color:var(--muted);margin-top:14px}
+.pk-search{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:0;border-radius:var(--r-sm);box-shadow:0 0 0 1px var(--frame);background:var(--surface);color:var(--ink);-webkit-appearance:none}
+.pk-f{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px 4px}
+.pk-f::-webkit-scrollbar{display:none}
+.pk-f .filter{flex:none;font-size:15px;padding:7px 12px}
+.pk-f .filter[aria-pressed="true"]{background:var(--ink);color:#FBF7F0;box-shadow:none}
+.pk-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.pk-row{width:100%;display:grid;grid-template-columns:68px minmax(0,1fr) 36px;gap:12px;align-items:center;text-align:left;border:0;font:inherit;color:var(--ink);
+  background:var(--surface);box-shadow:var(--shadow);border-radius:var(--r-sm);padding:8px;cursor:pointer}
+.pk-row img{width:68px;height:68px;object-fit:cover;border-radius:6px;background:#ddd3c6}
+.pk-row b{display:block;font-weight:600;font-size:17px;line-height:1.25}
+.pk-row small{display:block;color:var(--muted);font-size:14px;line-height:1.35;margin-top:2px}
+.pk-row em{display:inline-block;font-style:normal;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin-top:5px;color:#3A2E28}
+.pk-row .plus{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#FBF7F0;font-size:22px;line-height:1}
+.pk-row[disabled]{opacity:.55;cursor:default}
+.pk-row[disabled] .plus{background:var(--hair);color:var(--muted)}
+.pk-own{display:flex;flex-direction:column;gap:8px}
+.pk-own-row{display:flex;gap:8px}
+.pk-own-row input{flex:1;min-width:0;font:inherit;font-size:16px;padding:11px 12px;border:0;border-radius:var(--r-sm);box-shadow:0 0 0 1px var(--frame);background:var(--surface);color:var(--ink)}
+.pk-empty{color:var(--muted);font-size:15px;padding:8px 2px}
+.toast{position:fixed;left:50%;transform:translate(-50%,20px);bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:95;display:flex;align-items:center;gap:14px;
+  background:#2B2420;color:#FBF7F0;padding:10px 10px 10px 16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:15px;max-width:calc(100vw - 32px);
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:rgba(255,255,255,.14);color:#FFE3B8;font:inherit;font-weight:700;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.toast button[hidden]{display:none}
+
 /* ---------- Visor de fotos ---------- */
 .gallery img,.zoomable{cursor:zoom-in}
 .gallery figure{position:relative}
@@ -514,14 +566,9 @@ footer small a{color:var(--muted)}
       <div class="panel-hero"><img src="monti.jpg" alt="Patio arbolado con macetas en una calle de Monti" loading="lazy">
         <div class="cap"><span class="dow">Giovedì</span><h3>Benvenuti a Roma</h3></div><span class="num">XXV</span></div>
       <div class="panel-body">
-        <ol class="steps">
-          <li><time>17:00</time><span class="dot"></span><div><b>Vuelo a Roma</b><p>Unas dos horas. Aterrizaje sobre las 19:00.</p></div></li>
-          <li><time>19:30</time><span class="dot"></span><div><b>Leonardo Express a Termini</b><p>32 minutos sin paradas desde Fiumicino.</p></div></li>
-          <li><time>20:30</time><span class="dot"></span><div><b>Llegada a casa</b><p>Diez minutos andando desde Termini. Dejamos maletas y salimos.</p></div></li>
-          <li class="key"><time>21:00</time><span class="dot"></span><div><b>Primera cena en Monti</b><p>La elegimos entre los dos en «Scegliamo insieme».</p></div></li>
-          <li><time>22:30</time><span class="dot"></span><div><b>Piazza della Madonna dei Monti</b><p>La plaza con fuente donde se junta el barrio por la noche.</p></div></li>
-          <li class="key"><time>23:00</time><span class="dot"></span><div><b>Coliseo iluminado</b><p>Bajando por Via dei Fori Imperiales, con los Foros a los lados. Sin gente y con luz dorada.</p></div></li>
-        </ol>
+        <div class="day-col"><div class="day-tools" data-day="jueves"></div>
+        <ol class="steps" data-day="jueves"></ol>
+        <div class="day-add" data-day="jueves" hidden></div></div>
         <div class="side">
           <div class="tip"><b>Unos 3 km</b>Paseo corto para la primera noche: el Coliseo iluminado y vacío es otra cosa.</div>
         </div>
@@ -532,18 +579,9 @@ footer small a{color:var(--muted)}
       <div class="panel-hero"><img src="coliseo.jpg" alt="El Coliseo a la luz de la mañana" loading="lazy">
         <div class="cap"><span class="dow">Venerdì</span><h3>La Roma antica</h3></div><span class="num">XXVI</span></div>
       <div class="panel-body">
-        <ol class="steps">
-          <li class="key"><time>09:00</time><span class="dot"></span><div><b>Coliseo</b><p>Primera franja, con entrada reservada, antes de que llegue la gente.</p></div></li>
-          <li><time>10:30</time><span class="dot"></span><div><b>Palatino y Foro Romano</b><p>Incluidos en la misma entrada. Subimos primero al Palatino: desde arriba se ve todo el Foro.</p></div></li>
-          <li><time>12:30</time><span class="dot"></span><div><b>Campidoglio</b><p>La plaza que diseñó Miguel Ángel. Detrás, una terraza con la mejor vista gratis del Foro.</p></div></li>
-          <li><time>13:00</time><span class="dot"></span><div><b>Vittoriano</b><p>El gran monumento blanco de Piazza Venezia. Sus escalinatas se suben gratis.</p></div></li>
-          <li><time>13:30</time><span class="dot"></span><div><b>Comida en el Gueto judío</b><p>Junto al Pórtico de Octavia. Hay que probar las alcachofas a la judía, fritas y crujientes.</p></div></li>
-          <li><time>15:00</time><span class="dot"></span><div><b>Panteón</b><p>Casi 1.900 años y la cúpula sigue abierta al cielo.</p></div></li>
-          <li><time>15:45</time><span class="dot"></span><div><b>Piazza Navona</b><p>La Fuente de los Cuatro Ríos de Bernini, sobre el antiguo estadio de Domiciano.</p></div></li>
-          <li><time>16:15</time><span class="dot"></span><div><b>Campo de' Fiori</b><p>Un café en la plaza antes de volver a casa.</p></div></li>
-          <li><time>17:00</time><span class="dot"></span><div><b>Descanso en casa</b><p>Para recargar y arreglarse. Unos 9 km andados.</p></div></li>
-          <li class="key"><time>19:30</time><span class="dot"></span><div><b>Noche sorpresa</b><p>Más abajo están las pistas. Nada más.</p></div></li>
-        </ol>
+        <div class="day-col"><div class="day-tools" data-day="viernes"></div>
+        <ol class="steps" data-day="viernes"></ol>
+        <div class="day-add" data-day="viernes" hidden></div></div>
         <div class="side">
           <figure><img src="panteon.jpg" alt="Fachada del Panteón con la fuente de la Piazza della Rotonda" loading="lazy"><figcaption>Panteón</figcaption></figure>
           <figure><img src="navona.jpg" alt="Placa de mármol de Piazza Navona sobre fachada ocre" loading="lazy"><figcaption>Piazza Navona</figcaption></figure>
@@ -555,17 +593,9 @@ footer small a{color:var(--muted)}
       <div class="panel-hero"><img src="pompeya.jpg" alt="El Foro de Pompeya con el Vesubio al fondo" loading="lazy">
         <div class="cap"><span class="dow">Sabato</span><h3>Pompei</h3></div><span class="num">XXVII</span></div>
       <div class="panel-body">
-        <ol class="steps">
-          <li><time>06:40</time><span class="dot"></span><div><b>Andando a Termini</b><p>Diez minutos desde casa.</p></div></li>
-          <li><time>07:00</time><span class="dot"></span><div><b>Frecciarossa a Nápoles</b><p>Unos 70 minutos. Cappuccino a bordo.</p></div></li>
-          <li><time>08:30</time><span class="dot"></span><div><b>Circumvesuviana a Pompei Scavi</b><p>Unos 35 minutos desde Napoli Garibaldi.</p></div></li>
-          <li class="key"><time>09:30</time><span class="dot"></span><div><b>Pompeya</b><p>Por Porta Marina: Foro, termas, la Casa del Fauno, el anfiteatro y los moldes de yeso, con el Vesubio de fondo. Cierra a las 17:00.</p></div></li>
-          <li><time>14:30</time><span class="dot"></span><div><b>Vuelta a Nápoles</b><p>Circumvesuviana hasta Garibaldi.</p></div></li>
-          <li><time>15:30</time><span class="dot"></span><div><b>Spaccanapoli</b><p>La calle recta que parte en dos el centro histórico. Ropa tendida, motos y altarcitos en cada esquina.</p></div></li>
-          <li><time>16:15</time><span class="dot"></span><div><b>Via San Gregorio Armeno</b><p>La calle de los belenes artesanos, abiertos todo el año.</p></div></li>
-          <li class="key"><time>17:00</time><span class="dot"></span><div><b>Pizza en Via dei Tribunali</b><p>La pizzería la votamos abajo.</p></div></li>
-          <li><time>19:00</time><span class="dot"></span><div><b>Tren de vuelta a Roma</b><p>Una sfogliatella para el camino.</p></div></li>
-        </ol>
+        <div class="day-col"><div class="day-tools" data-day="sabado"></div>
+        <ol class="steps" data-day="sabado"></ol>
+        <div class="day-add" data-day="sabado" hidden></div></div>
         <div class="side">
           <figure><img src="pizza.jpg" alt="Pizza margherita napolitana recién horneada" loading="lazy"><figcaption>Margherita en Nápoles</figcaption></figure>
           <div class="tip"><b>Lleva el DNI</b>Las entradas de Pompeya son nominativas y pueden pedir identificación en la puerta.</div>
@@ -577,19 +607,9 @@ footer small a{color:var(--muted)}
       <div class="panel-hero"><img src="vaticano.jpg" alt="La cúpula de San Pedro iluminada sobre el Tíber de noche" loading="lazy">
         <div class="cap"><span class="dow">Domenica</span><h3>Arrivederci</h3></div><span class="num">XXVIII</span></div>
       <div class="panel-body">
-        <ol class="steps">
-          <li><time>07:40</time><span class="dot"></span><div><b>Metro A hasta Ottaviano</b><p>Desde Vittorio Emanuele, delante de casa.</p></div></li>
-          <li class="key"><time>08:00</time><span class="dot"></span><div><b>Plaza y Basílica de San Pedro</b><p>Abre a las 7:00 y a esa hora casi no hay cola. La Piedad de Miguel Ángel, a la derecha al entrar.</p></div></li>
-          <li><time>09:45</time><span class="dot"></span><div><b>Castel Sant'Angelo</b><p>Por Via della Conciliazione y el Ponte Sant'Angelo, el puente de los ángeles de Bernini.</p></div></li>
-          <li><time>11:00</time><span class="dot"></span><div><b>Gianicolo</b><p>Subida al mirador con toda Roma a los pies, cúpula a cúpula.</p></div></li>
-          <li class="key"><time>12:00</time><span class="dot"></span><div><b>Trastevere</b><p>Santa Maria in Trastevere y sus mosaicos dorados, callejuelas con hiedra.</p></div></li>
-          <li><time>13:30</time><span class="dot"></span><div><b>Comida en Trastevere</b><p>Carbonara de despedida.</p></div></li>
-          <li><time>15:00</time><span class="dot"></span><div><b>Isola Tiberina y Boca de la Verdad</b><p>La isla en mitad del Tíber y, al otro lado, la máscara donde meter la mano.</p></div></li>
-          <li class="key"><time>16:00</time><span class="dot"></span><div><b>Fontana di Trevi</b><p>Moneda de espaldas a la fuente. Acercarse al borde cuesta 2 € hasta las 22:00; después es gratis.</p></div></li>
-          <li><time>16:45</time><span class="dot"></span><div><b>Piazza di Spagna</b><p>Los 135 escalones de la Escalinata hasta Trinità dei Monti.</p></div></li>
-          <li class="key"><time>17:30</time><span class="dot"></span><div><b>Atardecer en el Pincio</b><p>La terraza sobre Piazza del Popolo. La última foto del viaje.</p></div></li>
-          <li><time>Noche</time><span class="dot"></span><div><b>Vuelo de vuelta</b><p>Leonardo Express desde Termini con margen. Unos 11 km andados.</p></div></li>
-        </ol>
+        <div class="day-col"><div class="day-tools" data-day="domingo"></div>
+        <ol class="steps" data-day="domingo"></ol>
+        <div class="day-add" data-day="domingo" hidden></div></div>
         <div class="side">
           <figure><img src="trevi.jpg" alt="Fontana di Trevi iluminada de noche junto a una farola" loading="lazy"><figcaption>Fontana di Trevi</figcaption></figure>
           <div class="tip"><b>El día más andado</b>Unos 11 km de San Pedro al Pincio. Zapatillas cómodas y la maleta dejada en casa o en consigna.</div>
@@ -752,6 +772,21 @@ footer small a{color:var(--muted)}
   <div class="lb-cap" id="lb-cap"></div>
 </div>
 
+<div class="sheet picker" id="picker" role="dialog" aria-modal="true" aria-labelledby="pk-title" aria-hidden="true">
+  <div class="sheet-bar">
+    <button class="back" id="pk-back" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Volver</button>
+    <span class="t" id="pk-title">Elegir plan</span><span style="width:44px"></span>
+  </div>
+  <div class="sheet-in" style="gap:14px">
+    <p class="pk-ctx" id="pk-ctx"></p>
+    <label class="vh" for="pk-q">Buscar</label><input type="search" class="pk-search" id="pk-q" placeholder="Buscar un sitio…" autocomplete="off">
+    <div class="pk-f" id="pk-f" role="group" aria-label="Filtrar"></div>
+    <ul class="pk-list" id="pk-list"></ul>
+    <div class="pk-own"><h3>O algo vuestro</h3><div class="pk-own-row"><label class="vh" for="pk-own">Plan propio</label><input id="pk-own" type="text" maxlength="60" placeholder="Ej.: tiempo libre, compras, siesta…"><button class="btn" id="pk-own-btn" type="button">Añadir</button></div></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span></span><button type="button" hidden>Deshacer</button></div>
+
 <nav class="appbar" aria-label="Secciones">
   <a href="#plan" data-sec="plan"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Plan</a>
   <a href="#mapa" data-sec="mapa"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Mapa</a>
@@ -795,6 +830,63 @@ footer small a{color:var(--muted)}
   var REGION={lon0:12.2,lat0:42.02,k:250};
   function proj(v,lat,lon){return [(lon-v.lon0)*v.k,(v.lat0-lat)*v.k*1.343];}
   var HOME={n:"Casa",lat:41.89408,lon:12.5028};
+  /* ---------- Plan de cada día (editable) ---------- */
+  var DAYIDS=["jueves","viernes","sabado","domingo"],SHORT={jueves:"jue",viernes:"vie",sabado:"sab",domingo:"dom"},LONG={jue:"jueves",vie:"viernes",sab:"sabado",dom:"domingo"};
+  var PLAN_DEF={
+    jueves:[
+      {id:"j1",t:"17:00",n:"Vuelo a Roma",p:"Unas dos horas. Aterrizaje sobre las 19:00.",fx:1},
+      {id:"j2",t:"19:30",n:"Leonardo Express a Termini",p:"32 minutos sin paradas desde Fiumicino.",fx:1},
+      {id:"j3",t:"20:30",n:"Llegada a casa",p:"Diez minutos andando desde Termini. Dejamos maletas y salimos.",fx:1},
+      {id:"j4",t:"21:00",n:"Primera cena en Monti",p:"La elegimos entre los dos en «Scegliamo insieme».",hl:1,lat:41.89412,lon:12.48945,q:"Via della Madonna dei Monti, Roma",dx:-10,dy:-10,a:"end"},
+      {id:"j5",t:"22:30",n:"Piazza della Madonna dei Monti",p:"La plaza con fuente donde se junta el barrio por la noche.",lat:41.8946,lon:12.4908,q:"Piazza della Madonna dei Monti, Roma",dx:10,dy:-10},
+      {id:"j6",t:"23:00",n:"Coliseo iluminado",p:"Bajando por Via dei Fori Imperiales, con los Foros a los lados. Sin gente y con luz dorada.",hl:1,k:"colnoche",lat:41.8902,lon:12.4922,q:"Colosseo, Roma",dx:12,dy:16}],
+    viernes:[
+      {id:"v1",t:"09:00",n:"Coliseo",p:"Primera franja, con entrada reservada, antes de que llegue la gente.",hl:1,k:"colosseo",lat:41.8902,lon:12.4922,q:"Colosseo, Roma",dx:12,dy:14},
+      {id:"v2",t:"10:30",n:"Palatino y Foro Romano",p:"Incluidos en la misma entrada. Subimos primero al Palatino: desde arriba se ve todo el Foro.",lat:41.8908,lon:12.4864,q:"Foro Romano, Roma",dx:8,dy:22},
+      {id:"v3",t:"12:30",n:"Campidoglio",p:"La plaza que diseñó Miguel Ángel. Detrás, una terraza con la mejor vista gratis del Foro.",lat:41.8934,lon:12.4828,q:"Piazza del Campidoglio, Roma",dx:12,dy:14},
+      {id:"v4",t:"13:00",n:"Vittoriano",p:"El gran monumento blanco de Piazza Venezia. Sus escalinatas se suben gratis.",k:"vittoriano",lat:41.8946,lon:12.4831,q:"Vittoriano, Roma",dx:6,dy:-14},
+      {id:"v5",t:"13:30",n:"Comida en el Gueto judío",p:"Junto al Pórtico de Octavia. Hay que probar las alcachofas a la judía, fritas y crujientes.",k:"ghetto",lat:41.8925,lon:12.4775,q:"Portico d'Ottavia, Roma",dx:-2,dy:22,a:"middle"},
+      {id:"v6",t:"15:00",n:"Panteón",p:"Casi 1.900 años y la cúpula sigue abierta al cielo.",k:"pantheon",lat:41.8986,lon:12.4769,q:"Pantheon, Roma",dx:12,dy:4},
+      {id:"v7",t:"15:45",n:"Piazza Navona",p:"La Fuente de los Cuatro Ríos de Bernini, sobre el antiguo estadio de Domiciano.",k:"navona",lat:41.8992,lon:12.4731,q:"Piazza Navona, Roma",dx:-12,dy:-8,a:"end"},
+      {id:"v8",t:"16:15",n:"Campo de' Fiori",p:"Un café en la plaza antes de volver a casa.",k:"campo",lat:41.8956,lon:12.4722,q:"Campo de' Fiori, Roma",dx:-12,dy:6,a:"end"},
+      {id:"v9",t:"17:00",n:"Descanso en casa",p:"Para recargar y arreglarse.",fx:1},
+      {id:"v10",t:"19:30",n:"Noche sorpresa",p:"Más abajo están las pistas. Nada más.",hl:1,fx:1}],
+    sabado:[
+      {id:"s1",t:"06:40",n:"Andando a Termini",p:"Diez minutos desde casa.",fx:1},
+      {id:"s2",t:"07:00",n:"Frecciarossa a Nápoles",p:"Unos 70 minutos. Cappuccino a bordo.",fx:1},
+      {id:"s3",t:"08:30",n:"Circumvesuviana a Pompei Scavi",p:"Unos 35 minutos desde Napoli Garibaldi.",fx:1},
+      {id:"s4",t:"09:30",n:"Pompeya",p:"Por Porta Marina: Foro, termas, la Casa del Fauno, el anfiteatro y los moldes de yeso, con el Vesubio de fondo. Cierra a las 17:00.",hl:1,fx:1},
+      {id:"s5",t:"14:30",n:"Vuelta a Nápoles",p:"Circumvesuviana hasta Garibaldi.",fx:1},
+      {id:"s6",t:"15:30",n:"Spaccanapoli",p:"La calle recta que parte en dos el centro histórico. Ropa tendida, motos y altarcitos en cada esquina.",lat:40.8484,lon:14.2550,q:"Spaccanapoli, Napoli"},
+      {id:"s7",t:"16:15",n:"Via San Gregorio Armeno",p:"La calle de los belenes artesanos, abiertos todo el año.",lat:40.8507,lon:14.2577,q:"Via San Gregorio Armeno, Napoli"},
+      {id:"s8",t:"17:00",n:"Pizza en Via dei Tribunali",p:"La pizzería la votamos abajo.",hl:1,lat:40.8510,lon:14.2580,q:"Via dei Tribunali, Napoli"},
+      {id:"s9",t:"19:00",n:"Tren de vuelta a Roma",p:"Una sfogliatella para el camino.",fx:1}],
+    domingo:[
+      {id:"d1",t:"07:40",n:"Metro A hasta Ottaviano",p:"Desde Vittorio Emanuele, delante de casa.",fx:1},
+      {id:"d2",t:"08:00",n:"Plaza y Basílica de San Pedro",p:"Abre a las 7:00 y a esa hora casi no hay cola. La Piedad de Miguel Ángel, a la derecha al entrar.",hl:1,k:"sanpietro",lat:41.9022,lon:12.4539,q:"Basilica di San Pietro",dx:0,dy:24,a:"middle"},
+      {id:"d3",t:"09:45",n:"Castel Sant'Angelo",p:"Por Via della Conciliazione y el Ponte Sant'Angelo, el puente de los ángeles de Bernini.",lat:41.9031,lon:12.4663,q:"Castel Sant'Angelo, Roma",dx:12,dy:-8},
+      {id:"d4",t:"11:00",n:"Gianicolo",p:"Subida al mirador con toda Roma a los pies, cúpula a cúpula.",k:"gianicolo",lat:41.8913,lon:12.4613,q:"Terrazza del Gianicolo, Roma",dx:-12,dy:4,a:"end"},
+      {id:"d5",t:"12:00",n:"Trastevere",p:"Santa Maria in Trastevere y sus mosaicos dorados, callejuelas con hiedra.",hl:1,k:"trastevere",lat:41.8894,lon:12.4703,q:"Piazza di Santa Maria in Trastevere",dx:-6,dy:22,a:"middle"},
+      {id:"d6",t:"13:30",n:"Comida en Trastevere",p:"Carbonara de despedida.",lat:41.8894,lon:12.4703,q:"Trastevere, Roma"},
+      {id:"d7",t:"15:00",n:"Isola Tiberina y Boca de la Verdad",p:"La isla en mitad del Tíber y, al otro lado, la máscara donde meter la mano.",k:"isola",lat:41.8906,lon:12.4775,q:"Isola Tiberina, Roma",dx:10,dy:-10},
+      {id:"d8",t:"16:00",n:"Fontana di Trevi",p:"Moneda de espaldas a la fuente. Acercarse al borde cuesta 2 € hasta las 22:00; después es gratis.",hl:1,k:"trevi",lat:41.9009,lon:12.4833,q:"Fontana di Trevi, Roma",dx:12,dy:4},
+      {id:"d9",t:"16:45",n:"Piazza di Spagna",p:"Los 135 escalones de la Escalinata hasta Trinità dei Monti.",k:"spagna",lat:41.9058,lon:12.4823,q:"Piazza di Spagna, Roma",dx:12,dy:6},
+      {id:"d10",t:"17:30",n:"Atardecer en el Pincio",p:"La terraza sobre Piazza del Popolo. La última foto del viaje.",hl:1,k:"pincio",lat:41.9113,lon:12.4778,q:"Terrazza del Pincio, Roma",dx:-12,dy:-8,a:"end"},
+      {id:"d11",t:"Noche",n:"Vuelo de vuelta",p:"Leonardo Express desde Termini con margen.",fx:1}]
+  };
+  function clone(o){return JSON.parse(JSON.stringify(o));}
+  function itin(day){var m=(typeof mine==="object"&&mine)||{},a=m["it_"+day];return clone(Array.isArray(a)?a:PLAN_DEF[day]);}
+  function tval(t){var m=/^(\d{1,2}):(\d\d)$/.exec(t||"");return m?(+m[1])*60+(+m[2]):1440;}
+  function fmt(v){v=Math.max(0,Math.min(1435,v));return (v<600?"0":"")+Math.floor(v/60)+":"+(v%60<10?"0":"")+v%60;}
+  function sortIt(a){return a.map(function(x,i){return [x,i];}).sort(function(p,q){return (tval(p[0].t)-tval(q[0].t))||(p[1]-q[1]);}).map(function(p){return p[0];});}
+  function isDefault(day){return !Array.isArray((typeof mine==="object"&&mine||{})["it_"+day]);}
+  function store(day,a){mine["it_"+day]=sortIt(a);}
+  function hav(a,b){var R=6371,toR=Math.PI/180,dLa=(b.lat-a.lat)*toR,dLo=(b.lon-a.lon)*toR;
+    var x=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(a.lat*toR)*Math.cos(b.lat*toR)*Math.sin(dLo/2)*Math.sin(dLo/2);return 2*R*Math.asin(Math.sqrt(x));}
+  function dayView(day){var B=DAYS[day];if(day==="sabado")return B;
+    var stops=itin(day).filter(function(it){return it.lat!=null&&!it.fx;}).map(function(it){return {n:it.n,d:it.t,lat:it.lat,lon:it.lon,q:it.q||(it.n+", Roma"),dx:it.dx,dy:it.dy,a:it.a};});
+    var pts=[B.start||HOME].concat(stops);if(B.loop)pts.push(HOME);var km=0;for(var i=1;i<pts.length;i++)km+=hav(pts[i-1],pts[i])*1.25;
+    return Object.assign({},B,{stops:stops,sub:B.sub.replace(/unos [\d,]+ km/,"unos "+Math.max(1,Math.round(km))+" km")});}
   var DAYS={
     jueves:{t:"Jueves 25",sub:"Paseo de bienvenida · unos 3 km",view:CITY,loop:true,stops:[
       {n:"Cena en Monti",d:"21:00 · Taverna Romana u otra",lat:41.89412,lon:12.48945,q:"Via della Madonna dei Monti, Roma",dx:-10,dy:-10,a:"end"},
@@ -834,7 +926,7 @@ footer small a{color:var(--muted)}
       d+=" Q"+(mx-dy*.12).toFixed(1)+" "+(my+dx*.12).toFixed(1)+" "+b[0].toFixed(1)+" "+b[1].toFixed(1);}
     return d;}
   function drawMap(day){
-    mapDay=day;var D=DAYS[day],v=D.view;
+    mapDay=day;var D=dayView(day),v=D.view;
     var cls={jueves:"jueves",viernes:"viernes",sabado:"sabado",domingo:"domingo"};
     wrap.id="mapwrap";wrap.setAttribute("data-day",day);
     var col=getComputedStyle(document.getElementById(day)).getPropertyValue("--day").trim()||"#ccc";
@@ -911,7 +1003,7 @@ footer small a{color:var(--muted)}
   var host=document.getElementById("decisions");
   function initials(n){n=(n||"").trim();if(!n)return "?";var p=n.split(/\s+/);return (p[0][0]+(p[1]?p[1][0]:"")).toUpperCase();}
   function render(){
-    if(window.__ideasReady){renderIdeas();renderSel();}
+    if(window.__ideasReady){renderIdeas();renderSel();renderPlans();drawMap(mapDay);}
     host.innerHTML="";
     DEC.forEach(function(dc){
       var box=document.createElement("article");box.className="decision";
@@ -1009,11 +1101,11 @@ footer small a{color:var(--muted)}
     IDEAS.forEach(function(i){if(!mine["w_"+i.k])return;n++;var li=document.createElement("li");
       li.innerHTML='<img alt=""><span><b></b><small></small><span class="days" role="group"></span></span><button class="x" type="button">×</button>';
       li.querySelector("img").src="p-"+i.k+".jpg";li.querySelector("b").textContent=i.n;
-      var dk="d_"+i.k,cur=mine[dk]||i.plan||"";
+      var cur=dayOf(i.k)||"";
       li.querySelector("small").textContent=cur?"El "+DAYC[cur][0].toLowerCase():"¿Qué día?";
       var dg=li.querySelector(".days");dg.setAttribute("aria-label","Día para "+i.n);
       ["jue","vie","sab","dom"].forEach(function(d){var bt=document.createElement("button");bt.type="button";bt.textContent=DAYC[d][0].slice(0,3);bt.style.setProperty("--c",DAYC[d][1]);bt.setAttribute("aria-pressed",cur===d);
-        bt.addEventListener("click",function(){if(mine[dk]===d)delete mine[dk];else mine[dk]=d;render();save();});dg.appendChild(bt);});
+        bt.addEventListener("click",function(){setDay(i.k,cur===d?null:d);});dg.appendChild(bt);});
       li.querySelector("b").style.cursor="pointer";li.querySelector("img").style.cursor="pointer";
       li.querySelector("b").addEventListener("click",function(){openDetail(i.k);});li.querySelector("img").addEventListener("click",function(){openDetail(i.k);});
       var x=li.querySelector(".x");x.setAttribute("aria-label","Quitar "+i.n);x.addEventListener("click",function(){delete mine["w_"+i.k];if(uid){all[uid]=Object.assign({},mine);}render();save();});wl.appendChild(li);});
@@ -1068,7 +1160,7 @@ footer small a{color:var(--muted)}
     document.getElementById("sh-img").src="p-"+k+".jpg";document.getElementById("sh-img").alt=i.n;
     document.getElementById("sh-bar-t").textContent=i.n;document.getElementById("sh-cat").textContent=catName;
     document.getElementById("sh-title").textContent=i.n;document.getElementById("sh-lead").textContent=e.l||i.d;
-    var ip=document.getElementById("sh-inplan");if(i.plan){ip.hidden=false;ip.style.background=DAYC[i.plan][1];ip.textContent="En el plan · "+DAYC[i.plan][0];}else ip.hidden=true;
+
     var wm=walkMin(i.lat,i.lon),f=document.getElementById("sh-facts");f.innerHTML="";
     [["Desde casa",i.far?i.far:(wm>45?"En metro o bus":wm+" min andando")],["Precio",i.price],["Tiempo",e.dur||"—"],["Mejor momento",e.best||"Cualquier momento"]].forEach(function(r){var d=document.createElement("div");d.innerHTML="<span></span><b></b>";d.querySelector("span").textContent=r[0];d.querySelector("b").textContent=r[1];f.appendChild(d);});
     var tip=document.getElementById("sh-tip");tip.hidden=!e.tip;tip.querySelector("span").textContent=e.tip||"";
@@ -1082,9 +1174,10 @@ footer small a{color:var(--muted)}
   }
   function paintSheet(){if(!shCur)return;var i=shCur,key="w_"+i.k,w=document.getElementById("sh-wish");
     w.setAttribute("aria-pressed",!!mine[key]);w.setAttribute("aria-label",(mine[key]?"Quitar de lo que nos apetece":"Me apetece")+": "+i.n);
-    var dk="d_"+i.k,cur=mine[dk]||i.plan||"",dg=document.getElementById("sh-days");dg.innerHTML="";
+    var cur=dayOf(i.k)||"",dg=document.getElementById("sh-days");dg.innerHTML="";
+    var ip=document.getElementById("sh-inplan");if(cur){ip.hidden=false;ip.style.background=DAYC[cur][1];ip.textContent="En el plan · "+DAYC[cur][0];}else ip.hidden=true;
     ["jue","vie","sab","dom"].forEach(function(d){var bt=document.createElement("button");bt.type="button";bt.textContent=DAYC[d][0];bt.style.setProperty("--c",DAYC[d][1]);bt.setAttribute("aria-pressed",cur===d);
-      bt.addEventListener("click",function(){if(mine[dk]===d)delete mine[dk];else{mine[dk]=d;mine[key]="1";}render();save();paintSheet();});dg.appendChild(bt);});}
+      bt.addEventListener("click",function(){if(cur!==d)mine[key]="1";setDay(i.k,cur===d?null:d);paintSheet();toast(cur===d?"Quitado del "+DAYC[d][0].toLowerCase():"Añadido al "+DAYC[d][0].toLowerCase());});dg.appendChild(bt);});}
   function closeDetail(fromPop){if(!sheet.classList.contains("open"))return;sheet.classList.remove("open");sheet.setAttribute("aria-hidden","true");document.documentElement.classList.remove("lock");shCur=null;
     if(shPrevFocus&&shPrevFocus.focus)shPrevFocus.focus({preventScroll:true});
     if(!fromPop&&/^#ver-/.test(location.hash)){if(history.state&&history.state.ver)history.back();else{try{history.replaceState(null,"",location.pathname+location.search);}catch(_){location.hash="";}}}}
@@ -1119,7 +1212,7 @@ footer small a{color:var(--muted)}
       a.querySelector(".cat").textContent=catName;a.querySelector("h3").textContent=i.n;a.querySelector("p").textContent=i.d;
       var meta=a.querySelector(".meta"),wm=walkMin(i.lat,i.lon);
       meta.textContent=(i.far?i.far:(wm>45?"En metro o bus":wm+" min andando"))+" · "+i.price;
-      if(i.plan){var ip=document.createElement("span");ip.className="inplan";ip.style.background=DAYC[i.plan][1];ip.textContent="En el plan · "+DAYC[i.plan][0];a.querySelector(".ph").appendChild(ip);}
+      var dp=dayOf(i.k);if(dp){var ip=document.createElement("span");ip.className="inplan";ip.style.background=DAYC[dp][1];ip.textContent="En el plan · "+DAYC[dp][0];a.querySelector(".ph").appendChild(ip);}
       a.querySelector(".maplink").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(i.n+", Roma");
       var w=a.querySelector(".wish"),key="w_"+i.k;w.setAttribute("aria-pressed",!!mine[key]);
       w.setAttribute("aria-label",(mine[key]?"Quitar":"Me apetece")+": "+i.n);
@@ -1194,15 +1287,120 @@ footer small a{color:var(--muted)}
     document.getElementById("sh-img").addEventListener("click",function(){openViewer(sheetList(),0);});
     document.getElementById("sh-gal").addEventListener("click",function(e){var f=e.target.closest("figure");if(!f)return;var all=[].slice.call(this.querySelectorAll("figure"));openViewer(sheetList(),all.indexOf(f)+1);});
   })();
-  window.__ideasReady=true;renderIdeas();renderSel();
+
+  /* ---------- Editor del plan de cada día ---------- */
+  var editDay=null,flashId=null;
+  function dayOf(k){for(var i=0;i<DAYIDS.length;i++){if(itin(DAYIDS[i]).some(function(it){return it.k===k;}))return SHORT[DAYIDS[i]];}return null;}
+  function uidN(){return "u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5);}
+  function idea(k){return IDEAS.filter(function(x){return x.k===k;})[0];}
+  function slotAfter(a){/* hueco tras el último plan editable */var idx=-1;a.forEach(function(it,i){if(!it.fx)idx=i;});if(idx<0)idx=a.length-1;
+    var t0=idx>=0?tval(a[idx].t):540;if(t0>=1440)t0=1200;var nx=a[idx+1]?tval(a[idx+1].t):1440;
+    var t=nx>=1440?t0+60:Math.round((t0+nx)/2/5)*5;if(t<=t0)t=t0+5;return fmt(Math.min(t,1435));}
+  function itemFrom(I,t,hl){var o={id:uidN(),t:t,n:I.n,p:I.d,k:I.k,lat:I.lat,lon:I.lon,q:I.n+", Roma"};if(hl)o.hl=1;return o;}
+  function setDay(k,ds){var I=idea(k);if(!I)return;
+    DAYIDS.forEach(function(day){var a=itin(day),n=a.filter(function(it){return it.k!==k;});if(n.length!==a.length)store(day,n);});
+    if(ds){var day=LONG[ds],a=itin(day),it=itemFrom(I,slotAfter(a));flashId=it.id;a.push(it);store(day,a);}
+    render();save();}
+  var toastEl=document.getElementById("toast"),toastT=null,toastUndo=null;
+  function toast(msg,undo){toastEl.querySelector("span").textContent=msg;var b=toastEl.querySelector("button");toastUndo=undo||null;b.hidden=!undo;
+    toastEl.classList.add("show");clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove("show");toastUndo=null;},undo?6000:2600);}
+  toastEl.querySelector("button").addEventListener("click",function(){if(toastUndo){toastUndo();toastUndo=null;}toastEl.classList.remove("show");});
+  function snapshot(){var o={};DAYIDS.forEach(function(d){if(Array.isArray(mine["it_"+d]))o[d]=clone(mine["it_"+d]);});return o;}
+  function restore(o){DAYIDS.forEach(function(d){if(o[d])mine["it_"+d]=o[d];else delete mine["it_"+d];});render();save();}
+  function renderPlans(){
+    DAYIDS.forEach(function(day){
+      var ol=document.querySelector('.steps[data-day="'+day+'"]'),tools=document.querySelector('.day-tools[data-day="'+day+'"]'),add=document.querySelector('.day-add[data-day="'+day+'"]');if(!ol)return;
+      var ed=editDay===day,items=itin(day);ol.innerHTML="";ol.classList.toggle("editing",ed);
+      items.forEach(function(it){
+        var li=document.createElement("li");if(it.hl)li.classList.add("key");if(it.id===flashId)li.classList.add("new");
+        li.innerHTML='<time></time><span class="dot"></span><div class="st"><b></b><p></p></div>';
+        li.querySelector("time").textContent=it.t;li.querySelector("b").textContent=it.n;
+        if(it.p)li.querySelector("p").textContent=it.p;else li.querySelector("p").remove();
+        if(!ed&&it.k&&idea(it.k)){li.classList.add("go");li.tabIndex=0;li.setAttribute("role","button");li.setAttribute("aria-label",it.t+", "+it.n+". Ver más");
+          li.addEventListener("click",function(){openDetail(it.k);});li.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();openDetail(it.k);}});}
+        if(ed&&it.fx)li.classList.add("fixed");
+        if(ed&&!it.fx){var row=document.createElement("div");row.className="st-edit";
+          row.innerHTML='<label><span class="vh">Hora de </span><input type="time" step="300"></label><button type="button" class="chg">Cambiar</button><button type="button" class="rm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span class="vh">Quitar</span></button>';
+          var inp=row.querySelector("input");inp.value=/^\d\d:\d\d$/.test(it.t)?it.t:"";inp.previousElementSibling.textContent="Hora de "+it.n;
+          inp.addEventListener("change",function(){if(!inp.value)return;var a=itin(day);a.forEach(function(x){if(x.id===it.id)x.t=inp.value;});flashId=it.id;store(day,a);render();save();});
+          row.querySelector(".chg").addEventListener("click",function(){openPicker(day,it.id);});
+          row.querySelector(".rm").setAttribute("aria-label","Quitar "+it.n);row.querySelector(".rm").addEventListener("click",function(){var snap=snapshot();var a=itin(day).filter(function(x){return x.id!==it.id;});store(day,a);render();save();
+            toast("Quitado: "+it.n,function(){restore(snap);});});
+          li.querySelector(".st").appendChild(row);}
+        ol.appendChild(li);});
+      flashId=flashId;
+      tools.innerHTML="";
+      if(ed){tools.innerHTML='<span class="hint">Cambia o quita lo que quieras. Lo que tiene candado no se mueve.</span><button type="button" class="pill dark">Hecho</button>';
+        tools.querySelector("button").addEventListener("click",function(){editDay=null;renderPlans();});}
+      else{tools.innerHTML='<button type="button" class="pill"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>Cambiar planes del día</button>';
+        tools.querySelector("button").addEventListener("click",function(){editDay=day;renderPlans();});}
+      add.hidden=!ed;add.innerHTML="";
+      if(ed){add.innerHTML='<button type="button" class="pill dark">＋ Añadir un plan</button>'+(isDefault(day)?'':'<button type="button" class="pill soft">Volver al plan original</button>');
+        add.querySelector(".dark").addEventListener("click",function(){openPicker(day,null);});
+        var rs=add.querySelector(".soft");if(rs)rs.addEventListener("click",function(){var snap=snapshot();delete mine["it_"+day];render();save();toast("Plan original recuperado",function(){restore(snap);});});}
+    });
+    setTimeout(function(){flashId=null;},50);
+  }
+  /* selector */
+  var pk=document.getElementById("picker"),pkDay=null,pkSlot=null,pkFil="cerca",pkAnchor=null;
+  var PKF=[["cerca","Más cerca"],["wish","Nos apetecen"],["top","Imprescindibles"],["gratis","Gratis"],["vistas","Miradores"],["arte","Arte"],["comer","Comer"],["noche","De noche"],["lluvia","Si llueve"],["fuera","Escapadas"]];
+  var pkf=document.getElementById("pk-f");
+  PKF.forEach(function(f){var b=document.createElement("button");b.type="button";b.className="filter";b.textContent=f[1];b.dataset.f=f[0];
+    b.addEventListener("click",function(){pkFil=f[0];paintPicker();});pkf.appendChild(b);});
+  function norm(t){return (t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+  function openPicker(day,slotId){toastEl.classList.remove("show");pkDay=day;pkSlot=slotId;pkFil="cerca";document.getElementById("pk-q").value="";document.getElementById("pk-own").value="";
+    var a=itin(day),idx=slotId?a.map(function(x){return x.id;}).indexOf(slotId):a.length;pkAnchor=null;
+    for(var i=idx-1;i>=0;i--){if(a[i].lat!=null){pkAnchor={n:a[i].n,lat:a[i].lat,lon:a[i].lon};break;}}
+    if(!pkAnchor)pkAnchor={n:"casa",lat:HOME.lat,lon:HOME.lon};
+    var dn=DAYC[SHORT[day]][0].toLowerCase(),cur=slotId?a[idx]:null;
+    document.getElementById("pk-title").textContent=cur?"Cambiar plan":"Añadir al "+dn;
+    document.getElementById("pk-ctx").textContent=cur?("En lugar de «"+cur.n+"», a las "+cur.t+". Ordenado por cercanía a "+(pkAnchor.n==="casa"?"casa":pkAnchor.n)+"."):("Se añadirá al "+dn+". Ordenado por cercanía a "+(pkAnchor.n==="casa"?"casa":pkAnchor.n)+".");
+    paintPicker();pk.setAttribute("aria-hidden","false");pk.classList.add("open");document.documentElement.classList.add("lock");pk.scrollTop=0;
+    try{history.pushState({pk:1},"",location.href);}catch(_){}
+    setTimeout(function(){document.getElementById("pk-back").focus({preventScroll:true});},50);}
+  function closePicker(fromPop){if(!pk.classList.contains("open"))return;pk.classList.remove("open");pk.setAttribute("aria-hidden","true");
+    if(!sheet.classList.contains("open"))document.documentElement.classList.remove("lock");if(!fromPop&&history.state&&history.state.pk)history.back();}
+  window.addEventListener("popstate",function(){if(pk.classList.contains("open")&&!(history.state&&history.state.pk))closePicker(true);});
+  document.getElementById("pk-back").addEventListener("click",function(){closePicker(false);});
+  document.getElementById("pk-q").addEventListener("input",paintPicker);
+  function paintPicker(){[].forEach.call(pkf.children,function(b){b.setAttribute("aria-pressed",b.dataset.f===pkFil);});
+    var q=norm(document.getElementById("pk-q").value),ul=document.getElementById("pk-list"),a=itin(pkDay),here=SHORT[pkDay];ul.innerHTML="";
+    var list=IDEAS.filter(function(i){if(q&&norm(i.n+" "+i.d).indexOf(q)<0)return false;if(pkFil==="wish")return !!mine["w_"+i.k];if(pkFil==="cerca")return !i.far;return i.c.indexOf(pkFil)>-1;});
+    list.sort(function(x,y){return hav(pkAnchor,x)-hav(pkAnchor,y);});
+    if(!list.length){ul.innerHTML='<li class="pk-empty">'+(pkFil==="wish"?"Aún no habéis marcado nada con el corazón.":"No hay planes con ese filtro.")+'</li>';return;}
+    list.forEach(function(i){var li=document.createElement("li"),b=document.createElement("button");b.type="button";b.className="pk-row";
+      b.innerHTML='<img alt="" loading="lazy"><span><b></b><small></small></span><span class="plus" aria-hidden="true">+</span>';
+      b.querySelector("img").src="p-"+i.k+".jpg";b.querySelector("b").textContent=i.n;
+      var km=hav(pkAnchor,i)*1.2,min=Math.max(5,Math.round(km/4.6*60/5)*5),from=pkAnchor.n==="casa"?"de casa":"de "+pkAnchor.n;
+      b.querySelector("small").textContent=(i.far?i.far:(min>45?"En metro o bus desde "+from.slice(3):min+" min andando "+from))+" · "+i.price;
+      var d=dayOf(i.k),inThis=d===here;
+      if(d){var em=document.createElement("em");em.style.background=DAYC[d][1];em.textContent=inThis?"Ya está en este día":"Ahora en el "+DAYC[d][0].toLowerCase()+" · se moverá";b.querySelector("span").appendChild(em);}
+      if(mine["w_"+i.k]&&!d){var e2=document.createElement("em");e2.style.background="var(--surface-2)";e2.textContent="♥ Os apetece";b.querySelector("span").appendChild(e2);}
+      if(inThis){b.disabled=true;}
+      b.setAttribute("aria-label",(pkSlot?"Cambiar por ":"Añadir ")+i.n);
+      b.addEventListener("click",function(){pickIdea(i);});li.appendChild(b);ul.appendChild(li);});}
+  function putItem(it){var snap=snapshot(),a=itin(pkDay),dn=DAYC[SHORT[pkDay]][0].toLowerCase(),msg;
+    if(it.k)DAYIDS.forEach(function(day){if(day===pkDay)return;var x=itin(day),n=x.filter(function(y){return y.k!==it.k;});if(n.length!==x.length)store(day,n);});
+    if(pkSlot){var old=null;a=a.map(function(x){if(x.id===pkSlot){old=x;it.t=x.t;if(x.hl)it.hl=1;return it;}return x;});msg="Cambiado: "+(old?old.n:"")+" → "+it.n;}
+    else{it.t=slotAfter(a);a.push(it);msg="Añadido al "+dn+" a las "+it.t;}
+    flashId=it.id;store(pkDay,a);closePicker(false);render();save();toast(msg,function(){restore(snap);});}
+  function pickIdea(i){var it=itemFrom(i,"");putItem(it);}
+  document.getElementById("pk-own-btn").addEventListener("click",function(){var v=document.getElementById("pk-own").value.trim();if(!v){document.getElementById("pk-own").focus();return;}
+    putItem({id:uidN(),t:"",n:v,p:""});});
+  document.getElementById("pk-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();document.getElementById("pk-own-btn").click();}});
+  /* migrar días elegidos con la versión anterior */
+  Object.keys(mine).forEach(function(key){if(!/^d_/.test(key))return;var k=key.slice(2),d=mine[key];delete mine[key];if(DAYC[d]&&dayOf(k)!==d)setDay(k,d);});
+  window.__ideasReady=true;renderIdeas();renderSel();renderPlans();drawMap(mapDay);
   if(/^#ver-/.test(location.hash))routeHash();
 
   function summary(){
     var L=["Roma e Pompei · lo que hemos elegido",""];
     var w=IDEAS.filter(function(i){return mine["w_"+i.k];});
     L.push("PLANES ("+w.length+")");
-    w.forEach(function(i){var d=mine["d_"+i.k]||i.plan;L.push("- "+i.n+(d?" · "+DAYC[d][0]:" · sin día"));});
+    w.forEach(function(i){var d=dayOf(i.k);L.push("- "+i.n+(d?" · "+DAYC[d][0]:" · sin día"));});
     if(!w.length)L.push("- (ninguno todavía)");
+    L.push("","PLAN DÍA A DÍA");
+    DAYIDS.forEach(function(day){L.push("",DAYC[SHORT[day]][0].toUpperCase());itin(day).forEach(function(it){L.push("- "+it.t+" · "+it.n);});});
     L.push("","VOTACIONES");
     DEC.forEach(function(dc){var o=dc.o.filter(function(x){return x.k===mine[dc.k];})[0];L.push("- "+dc.t+": "+(o?o.n:"sin elegir"));});
     if(mine.note){L.push("","NOTAS",mine.note);}
