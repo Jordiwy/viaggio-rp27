@@ -305,6 +305,52 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .share-row{display:flex;gap:8px;flex-wrap:wrap}
 .share-row .btn{font-family:var(--f-body);font-size:16px}
 
+/* ---------- Detalle de plan ---------- */
+.idea{cursor:pointer}
+.idea:focus-visible{outline:2px solid var(--ocra);outline-offset:3px}
+.idea .more-hint{font-size:14px;color:var(--rosso);font-weight:600}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--marble),#F7F2EA;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.2,1);visibility:hidden}
+.sheet.open{transform:none;visibility:visible}
+@media (prefers-reduced-motion:reduce){.sheet{transition:none}}
+.sheet-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:calc(8px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 8px max(12px,env(safe-area-inset-left,0px));
+  background:rgba(248,243,234,.88);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--frame)}
+.back{border:0;background:transparent;font:inherit;font-size:18px;color:var(--rosso);display:flex;align-items:center;gap:2px;padding:8px 6px;cursor:pointer;min-height:44px}
+.back svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sheet-bar .t{font-family:var(--f-display);font-size:15px;letter-spacing:.06em;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sheet-bar .wish{position:static;width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;background:var(--surface);box-shadow:0 0 0 1px var(--frame);color:var(--ink);cursor:pointer}
+.sheet-bar .wish svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7}
+.sheet-bar .wish[aria-pressed="true"]{background:var(--rosso);color:#fff;box-shadow:none}
+.sheet-bar .wish[aria-pressed="true"] svg{fill:currentColor}
+.sheet-in{max-width:760px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) calc(48px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:22px}
+.sheet-hero{margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));position:relative;aspect-ratio:4/3;max-height:62vh;overflow:hidden;background:#d9cfc2}
+@media (min-width:760px){.sheet-hero{margin:16px 0 0;border-radius:var(--r-md)}}
+.sheet-hero img{width:100%;height:100%;object-fit:cover}
+.sheet-hero .inplan{position:absolute;left:14px;bottom:14px;font-size:14px;padding:4px 10px;border-radius:var(--r-sm);color:#3A2E28;box-shadow:0 1px 6px rgba(0,0,0,.2)}
+.sheet-head{display:flex;flex-direction:column;gap:6px}
+.sheet-head .cat{font-family:var(--f-display);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rosso)}
+.sheet-head h2{font-size:clamp(28px,7vw,42px);line-height:1.1}
+.sheet-lead{font-size:20px;line-height:1.55;color:var(--ink)}
+.facts-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.facts-g div{background:var(--surface);box-shadow:var(--shadow);border-radius:var(--r-sm);padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.facts-g span{font-family:var(--f-display);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.facts-g b{font-weight:600;font-size:17px;line-height:1.3}
+.tipbox{background:color-mix(in srgb,var(--tint) 30%,#FFFCF6);border-left:3px solid var(--rosso);padding:14px 16px;border-radius:2px;font-size:17px}
+.tipbox b{display:block;font-family:var(--f-display);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rosso);margin-bottom:4px}
+.sheet h3{font-family:var(--f-body);font-size:20px;font-weight:600;letter-spacing:0}
+.sheet .days button{min-height:40px;font-size:16px;padding:6px 14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.actions a{flex:1;min-width:150px;text-align:center;text-decoration:none;padding:13px 16px;border-radius:var(--r-sm);font-weight:600;box-shadow:0 0 0 1px var(--frame);background:var(--surface)}
+.actions a.primary{background:var(--ink);color:#FBF7F0;box-shadow:none}
+.gal{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{flex:0 0 82%;max-width:420px;margin:0;scroll-snap-align:start;display:flex;flex-direction:column;gap:6px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-sm);background:#ddd3c6}
+.gal figcaption{font-size:12px;color:var(--muted);line-height:1.3}
+.gal-state{color:var(--muted);font-size:15px}
+html.lock,html.lock body{overflow:hidden}
+
 /* ---------- Bottom bar (app) ---------- */
 body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 .appbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;gap:2px;padding:6px;border-radius:14px;
@@ -659,6 +705,24 @@ footer small a{color:var(--muted)}
   </footer>
 </div>
 
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" aria-hidden="true">
+  <div class="sheet-bar">
+    <button class="back" id="sh-back" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Volver</button>
+    <span class="t" id="sh-bar-t"></span>
+    <button class="wish" id="sh-wish" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+  </div>
+  <div class="sheet-in">
+    <div class="sheet-hero"><img id="sh-img" alt=""><span class="inplan" id="sh-inplan" hidden></span></div>
+    <div class="sheet-head"><span class="cat" id="sh-cat"></span><h2 id="sh-title"></h2></div>
+    <p class="sheet-lead" id="sh-lead"></p>
+    <div class="facts-g" id="sh-facts"></div>
+    <div class="tipbox" id="sh-tip"><b>Consejo</b><span></span></div>
+    <div><h3>¿Qué día lo hacemos?</h3><div class="days" id="sh-days" role="group" aria-label="Día"></div></div>
+    <div class="actions"><a class="primary" id="sh-route" target="_blank" rel="noopener">Cómo llegar desde casa</a><a id="sh-map" target="_blank" rel="noopener">Ver en el mapa</a></div>
+    <div><h3>Más fotos</h3><p class="gal-state" id="sh-gal-state">Cargando fotos…</p><div class="gal" id="sh-gal"></div></div>
+  </div>
+</div>
+
 <nav class="appbar" aria-label="Secciones">
   <a href="#plan" data-sec="plan"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Plan</a>
   <a href="#mapa" data-sec="mapa"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Mapa</a>
@@ -921,12 +985,99 @@ footer small a{color:var(--muted)}
       var dg=li.querySelector(".days");dg.setAttribute("aria-label","Día para "+i.n);
       ["jue","vie","sab","dom"].forEach(function(d){var bt=document.createElement("button");bt.type="button";bt.textContent=DAYC[d][0].slice(0,3);bt.style.setProperty("--c",DAYC[d][1]);bt.setAttribute("aria-pressed",cur===d);
         bt.addEventListener("click",function(){if(mine[dk]===d)delete mine[dk];else mine[dk]=d;render();save();});dg.appendChild(bt);});
+      li.querySelector("b").style.cursor="pointer";li.querySelector("img").style.cursor="pointer";
+      li.querySelector("b").addEventListener("click",function(){openDetail(i.k);});li.querySelector("img").addEventListener("click",function(){openDetail(i.k);});
       var x=li.querySelector(".x");x.setAttribute("aria-label","Quitar "+i.n);x.addEventListener("click",function(){delete mine["w_"+i.k];if(uid){all[uid]=Object.assign({},mine);}render();save();});wl.appendChild(li);});
     if(!n){wl.innerHTML='<li class="sel-empty" style="display:block;border:0">Todavía nada. Tocad el corazón en cualquier plan de «Tutta Roma».</li>';}
     var v=0;DEC.forEach(function(dc){var o=dc.o.filter(function(x){return x.k===mine[dc.k];})[0];var li=document.createElement("li");li.style.gridTemplateColumns="minmax(0,1fr)";
       li.innerHTML="<span><small></small><b></b></span>";li.querySelector("small").textContent=dc.t;li.querySelector("b").textContent=o?o.n:"Sin elegir";if(!o)li.querySelector("b").style.color="var(--muted)";else v++;vl.appendChild(li);});
     var b=document.getElementById("badge");if(b){b.textContent=n+v;b.hidden=!(n+v);}
   }
+  var EXTRA={
+    colosseo:{l:"El anfiteatro más grande del mundo romano: 50.000 espectadores, luchas de gladiadores y cacerías de fieras. Con la misma entrada se visita el Foro, el centro político de Roma, y el Palatino, la colina donde vivían los emperadores.",dur:"3–4 horas",best:"A primera hora",tip:"Subid primero al Palatino: desde arriba se entiende todo el Foro y hay menos gente.",q:"Colosseum interior arena Rome"},
+    colnoche:{l:"Por la noche el Coliseo se ilumina por dentro y por fuera y la avenida de los Foros Imperiales se queda casi vacía. Es el mejor paseo para la primera noche.",dur:"45 minutos",best:"Después de cenar",tip:"Bajad por Via dei Fori Imperiali y volved por Via Cavour: es un círculo perfecto desde casa.",q:"Colosseum night Rome"},
+    vaticani:{l:"Kilómetros de galerías con esculturas clásicas, mapas pintados y las Estancias de Rafael, hasta llegar a la Capilla Sixtina con el techo y el Juicio Final de Miguel Ángel.",dur:"3–4 horas",best:"Primera hora, con entrada reservada",tip:"En la Capilla Sixtina no se puede hablar ni hacer fotos. Mirad el techo de la entrada hacia el altar: la historia va en orden.",q:"Vatican Museums gallery maps"},
+    sanpietro:{l:"La iglesia más grande de la cristiandad, en la plaza abrazada por la columnata de Bernini. Dentro están la Piedad de Miguel Ángel y el baldaquino de bronce.",dur:"1–2 horas",best:"A las 7–8 de la mañana",tip:"Hay control de seguridad: con hombros y rodillas cubiertos no hay problema.",q:"St. Peter's Basilica interior"},
+    cupola:{l:"Se sube por dentro de la cúpula de Miguel Ángel, pasando por la galería interior con los mosaicos a un palmo, hasta el mirador más alto de Roma.",dur:"1 hora",best:"Por la mañana",tip:"El tramo final es estrecho e inclinado. Con el ascensor os ahorráis la primera mitad.",q:"view from St. Peter's dome"},
+    pantheon:{l:"Un templo romano de casi 1.900 años que sigue en pie y en uso. La cúpula, con su óculo abierto, fue la más grande del mundo durante siglos. Aquí está enterrado Rafael.",dur:"30–45 minutos",best:"Al mediodía, cuando el rayo de sol entra por el óculo",tip:"Justo enfrente, en Piazza della Rotonda, se toma un buen café de pie.",q:"Pantheon Rome oculus"},
+    trevi:{l:"La fuente barroca más famosa del mundo, encajada en una plaza diminuta. La tradición dice que, si tiras una moneda de espaldas, vuelves a Roma.",dur:"20–30 minutos",best:"Muy temprano o pasadas las 22:00",tip:"Moneda con la mano derecha por encima del hombro izquierdo.",q:"Trevi Fountain"},
+    navona:{l:"Una plaza alargada que conserva la forma del estadio de Domiciano. En el centro, la Fuente de los Cuatro Ríos de Bernini, frente a la iglesia de su rival Borromini.",dur:"30 minutos",best:"Al atardecer",tip:"Las terrazas de la plaza son caras: mejor un helado y un banco.",q:"Piazza Navona Rome"},
+    spagna:{l:"La gran escalinata barroca que sube desde la fuente de la Barcaccia hasta la iglesia de Trinità dei Monti, con Via Condotti y sus tiendas a los pies.",dur:"30 minutos",best:"A primera hora o al anochecer",tip:"Arriba del todo hay una de las mejores vistas del centro.",q:"Spanish Steps Rome"},
+    borghese:{l:"Una villa llena de obras maestras: el Apolo y Dafne y el Rapto de Proserpina de Bernini, la Paulina de Canova y varios Caravaggio. Está dentro del parque de Villa Borghese.",dur:"2 horas (turno fijo)",best:"Turno de mañana",tip:"Se reserva con semanas de antelación. Mirad la mano de Plutón en la pierna de Proserpina: parece carne.",q:"Galleria Borghese Rome"},
+    capitolini:{l:"El museo público más antiguo del mundo, en la plaza diseñada por Miguel Ángel. Tiene la Loba Capitolina, el Marco Aurelio original y un pasadizo con vistas al Foro.",dur:"2 horas",best:"Al final de la tarde",tip:"Aunque no entréis, detrás del ayuntamiento hay un mirador gratis sobre el Foro.",q:"Capitoline Museums Rome"},
+    massimo:{l:"Uno de los mejores museos de arte romano: mosaicos, bronces y, sobre todo, los frescos de la villa de Livia, un jardín pintado que rodea toda una sala.",dur:"1,5 horas",best:"Cualquier momento, suele estar tranquilo",tip:"Está junto a Termini: encaja antes o después del tren.",q:"Palazzo Massimo alle Terme"},
+    clemente:{l:"Por fuera es una iglesia del siglo XII. Bajando, aparece una basílica del siglo IV, y debajo, casas romanas y un templo al dios Mitra. Se oye correr el agua.",dur:"1 hora",best:"Por la mañana",tip:"Llevad algo de abrigo: abajo hace fresco y hay humedad.",q:"San Clemente Rome underground"},
+    vincoli:{l:"Una iglesia tranquila que guarda el Moisés de Miguel Ángel, parte de la tumba del papa Julio II, y las cadenas que según la tradición ataron a San Pedro.",dur:"20 minutos",best:"Por la mañana",tip:"Está a 10 minutos de casa: perfecto para empezar un día.",q:"San Pietro in Vincoli Moses"},
+    maggiore:{l:"Una de las cuatro basílicas mayores de Roma, con mosaicos del siglo V y un techo dorado con, según la tradición, el primer oro llegado de América.",dur:"30–45 minutos",best:"Por la mañana",tip:"Es la iglesia más cercana a casa: se puede entrar de paso.",q:"Santa Maria Maggiore Rome mosaics"},
+    ignazio:{l:"Una iglesia barroca con un techo pintado por Andrea Pozzo que parece abrirse al cielo. La cúpula no existe: es una pintura plana.",dur:"20 minutos",best:"Cualquier momento",tip:"Buscad el disco de mármol en el suelo de la nave y mirad la cúpula desde ahí.",q:"Sant'Ignazio Rome ceiling"},
+    cappuccini:{l:"Varias capillas decoradas con los huesos de miles de frailes capuchinos, ordenados como si fueran adornos. Hay un pequeño museo antes.",dur:"45 minutos",best:"Cualquier momento",tip:"No es para todos los gustos. Está cerca de Via Veneto.",q:"Capuchin Crypt Rome"},
+    domus:{l:"El palacio que se construyó Nerón después del incendio de Roma, enterrado bajo las termas de Trajano. Se recorren salas con frescos que inspiraron a Rafael.",dur:"1,5 horas",best:"Visita guiada reservada",tip:"Solo abre con visita guiada y no todos los días: hay que mirar fechas antes.",q:"Domus Aurea Rome"},
+    caracalla:{l:"Unas termas gigantes del siglo III donde se bañaban miles de romanos a la vez. Quedan muros enormes y mosaicos en el suelo.",dur:"1,5 horas",best:"Por la mañana",tip:"Es de los sitios más tranquilos de Roma, ideal para descansar del gentío.",q:"Baths of Caracalla mosaics"},
+    argentina:{l:"Una plaza hundida con cuatro templos republicanos. Aquí estaba la curia donde mataron a Julio César, y hoy viven decenas de gatos cuidados por voluntarios.",dur:"15 minutos",best:"De paso hacia el Panteón",tip:"Se ve desde la barandilla, no hace falta entrar.",q:"Largo di Torre Argentina"},
+    aventino:{l:"En la puerta de la sede de los Caballeros de Malta, al mirar por el ojo de la cerradura, la cúpula de San Pedro aparece enmarcada en un jardín.",dur:"20 minutos",best:"Por la mañana, antes de que se forme cola",tip:"Combinadlo con el Giardino degli Aranci, a dos minutos.",q:"Piazza dei Cavalieri di Malta"},
+    aranci:{l:"Un jardín de naranjos en lo alto del Aventino con una terraza sobre el Tíber, Trastevere y la cúpula de San Pedro.",dur:"30 minutos",best:"Al atardecer",tip:"Pasad también por la basílica de Santa Sabina, justo al lado.",q:"Giardino degli Aranci Rome"},
+    gianicolo:{l:"La colina más alta del centro, al otro lado del Tíber. Desde la terraza se ven casi todas las cúpulas de Roma. Cada día a las 12:00 se dispara un cañón.",dur:"45 minutos",best:"A mediodía, para el cañón",tip:"Subid desde Trastevere por las escaleras de Via Garibaldi.",q:"Gianicolo terrace view Rome"},
+    pincio:{l:"La terraza sobre Piazza del Popolo, al borde del parque de Villa Borghese. Al atardecer el sol se pone detrás de San Pedro.",dur:"45 minutos",best:"Al atardecer",tip:"Es la última foto del viaje según el plan del domingo.",q:"Pincio terrace sunset"},
+    vittoriano:{l:"El enorme monumento blanco a Víctor Manuel II, que los romanos llaman 'la máquina de escribir'. Las escalinatas son gratis y un ascensor sube a la terraza más alta.",dur:"45 minutos",best:"Al final de la tarde",tip:"La vista desde arriba abarca del Coliseo al Vaticano.",q:"Vittoriano terrace view Rome"},
+    trastevere:{l:"El barrio medieval al otro lado del Tíber: calles empedradas, hiedra en las fachadas y la basílica de Santa Maria in Trastevere con mosaicos dorados.",dur:"Media tarde o una noche",best:"Al anochecer",tip:"Las mejores trattorias están en las calles laterales, no en la plaza.",q:"Trastevere street Rome"},
+    campo:{l:"La plaza más viva del centro: mercado de flores, fruta y especias por la mañana y terrazas por la tarde. En el centro, la estatua de Giordano Bruno.",dur:"30–60 minutos",best:"Por la mañana (mercado) o al atardecer (spritz)",tip:"El Forno de la esquina hace pizza bianca recién salida del horno.",q:"Campo de' Fiori market Rome"},
+    ghetto:{l:"Uno de los barrios judíos más antiguos de Europa, junto a las ruinas del Pórtico de Octavia. Aquí se comen las alcachofas a la judía, fritas y crujientes.",dur:"1–2 horas con comida",best:"A la hora de comer",tip:"En febrero es temporada de alcachofas: es el mejor momento para probarlas.",q:"Jewish Ghetto Rome Portico d'Ottavia"},
+    testaccio:{l:"Un mercado de barrio con puestos de comida romana para picar: supplì, panini de bollito, pasta fresca. Lo frecuentan más romanos que turistas.",dur:"1 hora",best:"A mediodía",tip:"Cerrado los domingos. El barrio de alrededor es el Testaccio más auténtico.",q:"Mercato di Testaccio"},
+    pasta:{l:"Una clase práctica para hacer pasta fresca a mano (fettuccine, ravioli) y tiramisú, y luego comer lo que habéis cocinado con vino.",dur:"3 horas",best:"Una tarde o un día de lluvia",tip:"Se reserva online. Es un buen plan si un día llueve.",q:"handmade pasta cooking class"},
+    margutta:{l:"Una calle tranquila y cubierta de hiedra, llena de talleres de artistas y galerías. Aquí vivía Gregory Peck en 'Vacaciones en Roma'.",dur:"20 minutos",best:"De paso hacia Plaza de España",tip:"Busca el número 51, la casa de la película.",q:"Via Margutta Rome"},
+    coppede:{l:"Un pequeño barrio de los años 20 con edificios de cuento: arcos, lámparas de hierro, torres y la Fuente de las Ranas. Casi nadie lo conoce.",dur:"45 minutos",best:"Por la mañana",tip:"Queda algo alejado: mejor en bus o taxi desde casa.",q:"Quartiere Coppedè Rome"},
+    isola:{l:"La única isla del Tíber, unida por puentes romanos, y al otro lado la Boca de la Verdad, una máscara antigua que según la leyenda muerde la mano de los mentirosos.",dur:"45 minutos",best:"A media tarde",tip:"En la Boca de la Verdad hay cola: id temprano o conformaos con mirarla desde la verja.",q:"Bocca della Verità Rome"},
+    appia:{l:"La 'reina de las calzadas', construida en el 312 a. C. Se recorre entre pinos, tumbas y acueductos, y bajo ella están las catacumbas cristianas.",dur:"Medio día",best:"Domingo por la mañana, cuando se cierra al tráfico",tip:"Alquilad bicis eléctricas en el centro de visitantes.",q:"Appian Way Rome"},
+    ostia:{l:"El puerto de la antigua Roma, muy bien conservado: calles, tiendas, termas con mosaicos y un teatro. Mucho más tranquilo que Pompeya.",dur:"Medio día",best:"Por la mañana",tip:"Tren de cercanías desde Piramide; la entrada está a cinco minutos de la estación.",q:"Ostia Antica mosaics"},
+    tivoli:{l:"Dos patrimonios de la humanidad en el mismo pueblo: Villa d'Este, con cientos de fuentes renacentistas, y Villa Adriana, la enorme villa del emperador Adriano.",dur:"Día entero",best:"Si os sobra un día",tip:"Con este viaje no da tiempo, pero queda apuntado para la próxima.",q:"Villa d'Este Tivoli fountains"}
+  };
+  var HOMEQ="Piazza Vittorio Emanuele II, Roma";
+  var sheet=document.getElementById("sheet"),shCur=null,shPrevFocus=null,galCache={};
+  function openDetail(k,push){
+    var i=IDEAS.filter(function(x){return x.k===k;})[0];if(!i)return;var e=EXTRA[k]||{};shCur=i;
+    var catName=(CATS.filter(function(c){return c[0]===i.c[0];})[0]||[])[1]||"";
+    document.getElementById("sh-img").src="p-"+k+".jpg";document.getElementById("sh-img").alt=i.n;
+    document.getElementById("sh-bar-t").textContent=i.n;document.getElementById("sh-cat").textContent=catName;
+    document.getElementById("sh-title").textContent=i.n;document.getElementById("sh-lead").textContent=e.l||i.d;
+    var ip=document.getElementById("sh-inplan");if(i.plan){ip.hidden=false;ip.style.background=DAYC[i.plan][1];ip.textContent="En el plan · "+DAYC[i.plan][0];}else ip.hidden=true;
+    var wm=walkMin(i.lat,i.lon),f=document.getElementById("sh-facts");f.innerHTML="";
+    [["Desde casa",i.far?i.far:(wm>45?"En metro o bus":wm+" min andando")],["Precio",i.price],["Tiempo",e.dur||"—"],["Mejor momento",e.best||"Cualquier momento"]].forEach(function(r){var d=document.createElement("div");d.innerHTML="<span></span><b></b>";d.querySelector("span").textContent=r[0];d.querySelector("b").textContent=r[1];f.appendChild(d);});
+    var tip=document.getElementById("sh-tip");tip.hidden=!e.tip;tip.querySelector("span").textContent=e.tip||"";
+    var dest=i.lat+","+i.lon;
+    document.getElementById("sh-route").href="https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(HOMEQ)+"&destination="+dest+"&travelmode="+(wm>45||i.far?"transit":"walking");
+    document.getElementById("sh-map").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(i.n+", Roma");
+    paintSheet();loadGal(k,e.q||i.n);
+    sheet.setAttribute("aria-hidden","false");sheet.classList.add("open");document.documentElement.classList.add("lock");sheet.scrollTop=0;
+    shPrevFocus=document.activeElement;setTimeout(function(){document.getElementById("sh-back").focus({preventScroll:true});},50);
+    if(push!==false){try{history.pushState({ver:k},"","#ver-"+k);}catch(_){location.hash="ver-"+k;}}
+  }
+  function paintSheet(){if(!shCur)return;var i=shCur,key="w_"+i.k,w=document.getElementById("sh-wish");
+    w.setAttribute("aria-pressed",!!mine[key]);w.setAttribute("aria-label",(mine[key]?"Quitar de lo que nos apetece":"Me apetece")+": "+i.n);
+    var dk="d_"+i.k,cur=mine[dk]||i.plan||"",dg=document.getElementById("sh-days");dg.innerHTML="";
+    ["jue","vie","sab","dom"].forEach(function(d){var bt=document.createElement("button");bt.type="button";bt.textContent=DAYC[d][0];bt.style.setProperty("--c",DAYC[d][1]);bt.setAttribute("aria-pressed",cur===d);
+      bt.addEventListener("click",function(){if(mine[dk]===d)delete mine[dk];else{mine[dk]=d;mine[key]="1";}render();save();paintSheet();});dg.appendChild(bt);});}
+  function closeDetail(fromPop){if(!sheet.classList.contains("open"))return;sheet.classList.remove("open");sheet.setAttribute("aria-hidden","true");document.documentElement.classList.remove("lock");shCur=null;
+    if(shPrevFocus&&shPrevFocus.focus)shPrevFocus.focus({preventScroll:true});
+    if(!fromPop&&/^#ver-/.test(location.hash)){if(history.state&&history.state.ver)history.back();else{try{history.replaceState(null,"",location.pathname+location.search);}catch(_){location.hash="";}}}}
+  document.getElementById("sh-back").addEventListener("click",function(){closeDetail(false);});
+  document.getElementById("sh-wish").addEventListener("click",function(){if(!shCur)return;var key="w_"+shCur.k;if(mine[key])delete mine[key];else mine[key]="1";render();save();paintSheet();});
+  document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&sheet.classList.contains("open"))closeDetail(false);});
+  function routeHash(){var m=location.hash.match(/^#ver-([a-z]+)$/);if(m)openDetail(m[1],false);else closeDetail(true);}
+  window.addEventListener("popstate",routeHash);window.addEventListener("hashchange",routeHash);
+  /* swipe desde el borde izquierdo para volver */
+  (function(){var sx=null,sy=0;sheet.addEventListener("touchstart",function(e){var t=e.touches[0];sx=t.clientX<30?t.clientX:null;sy=t.clientY;},{passive:true});
+    sheet.addEventListener("touchend",function(e){if(sx===null)return;var t=e.changedTouches[0];if(t.clientX-sx>80&&Math.abs(t.clientY-sy)<60)closeDetail(false);sx=null;},{passive:true});})();
+  function loadGal(k,q){var g=document.getElementById("sh-gal"),st=document.getElementById("sh-gal-state");g.innerHTML="";st.hidden=false;st.textContent="Cargando fotos…";
+    function paint(list){if(!shCur||shCur.k!==k)return;g.innerHTML="";if(!list.length){st.textContent="No hay más fotos ahora mismo.";return;}st.hidden=true;
+      list.forEach(function(p){var fg=document.createElement("figure");fg.innerHTML='<img loading="lazy" alt=""><figcaption></figcaption>';fg.querySelector("img").src=p.u;fg.querySelector("img").alt=i_n(k);fg.querySelector("figcaption").textContent="Foto: "+(p.a||"Wikimedia Commons")+(p.lic?" · "+p.lic:"");g.appendChild(fg);});}
+    if(galCache[k]){paint(galCache[k]);return;}
+    var url="https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=6&gsrlimit=14&gsrsearch="+encodeURIComponent(q+" filetype:bitmap")+"&prop=imageinfo&iiprop=url|size|extmetadata|mime&iiurlwidth=960";
+    fetch(url).then(function(r){return r.json();}).then(function(j){var ps=Object.values((j.query&&j.query.pages)||{}).sort(function(a,b){return a.index-b.index;});
+      var out=ps.map(function(p){var ii=p.imageinfo&&p.imageinfo[0];if(!ii||ii.mime!=="image/jpeg"||ii.width<900)return null;var m=ii.extmetadata||{};
+        return {u:ii.thumburl,a:((m.Artist&&m.Artist.value)||"").replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim().slice(0,40),lic:(m.LicenseShortName&&m.LicenseShortName.value)||""};}).filter(Boolean).slice(0,6);
+      galCache[k]=out;paint(out);}).catch(function(){if(shCur&&shCur.k===k)st.textContent="Sin conexión: las fotos extra se cargarán cuando haya internet.";});}
+  function i_n(k){var i=IDEAS.filter(function(x){return x.k===k;})[0];return i?i.n:"";}
+
   function renderIdeas(){
     ibox.innerHTML="";
     var list=IDEAS.filter(function(i){return catSel==="todo"||i.c.indexOf(catSel)>-1;});
@@ -947,10 +1098,15 @@ footer small a{color:var(--muted)}
       if(others.length){var pf=profiles[others[0]]||{};a.querySelector(".both").textContent=(mine[key]?"Os apetece a los dos":"A "+((pf.name||"").split(" ")[0]||"la otra persona")+" le apetece");}
       w.addEventListener("click",function(){if(mine[key])delete mine[key];else mine[key]="1";if(uid){all[uid]=Object.assign({},mine);}lastPop=key;render();save();});
       if(lastPop===key){w.classList.add("pop");lastPop=null;}
+      a.tabIndex=0;a.setAttribute("role","button");a.setAttribute("aria-label","Ver más sobre "+i.n);
+      a.addEventListener("click",function(ev){if(ev.target.closest(".wish")||ev.target.closest("a"))return;openDetail(i.k);});
+      a.addEventListener("keydown",function(ev){if((ev.key==="Enter"||ev.key===" ")&&ev.target===a){ev.preventDefault();openDetail(i.k);}});
+      var both=a.querySelector(".both");if(!both.textContent){both.textContent="Ver más";both.className="more-hint";}
       ibox.appendChild(a);});
   }
 
   window.__ideasReady=true;renderIdeas();renderSel();
+  if(/^#ver-/.test(location.hash))routeHash();
 
   function summary(){
     var L=["Roma e Pompei · lo que hemos elegido",""];
