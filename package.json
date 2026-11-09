@@ -1,0 +1,26 @@
+{
+  "name": "viatge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Viatge: app del viaje a Roma y Pompeya (frontend + API en Cloudflare Workers con D1)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build && wrangler dev --local --port 8787",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit -p worker",
+    "db:migrate:local": "wrangler d1 migrations apply viatge-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply viatge-db --remote",
+    "deploy": "vite build && wrangler deploy",
+    "test": "node --test test/api.test.js"
+  },
+  "dependencies": {
+    "hono": "^4.13.17",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261104.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.7",
+    "wrangler": "^4.158.0"
+  }
+}
