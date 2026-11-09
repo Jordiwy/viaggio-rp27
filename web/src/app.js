@@ -10,7 +10,7 @@
   tick();setInterval(tick,20000);
 
   /* ---------- Tabs ---------- */
-  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  var tabs=[].slice.call(document.querySelectorAll('.tabs [role="tab"]'));
   var ids=["jueves","viernes","sabado","domingo"];
   function select(id,focus){if(window.__onDay)window.__onDay(id);tabs.forEach(function(t){var on=t.getAttribute("aria-controls")===id;
     t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute("aria-controls")).hidden=!on;if(on&&focus)t.focus();});}
@@ -186,7 +186,7 @@
   [].forEach.call(document.querySelectorAll("#daychips .chip"),function(c){c.addEventListener("click",function(){drawMap(c.getAttribute("data-day"));});});
   window.__onDay=function(day){drawMap(day);};
   function tint(day){var c=getComputedStyle(document.getElementById(day)).getPropertyValue("--day").trim();if(c)document.documentElement.style.setProperty("--tint",c);}
-  drawMap(document.querySelector('[role="tab"][aria-selected="true"]').getAttribute("aria-controls"));
+  drawMap(document.querySelector('.tabs [role="tab"][aria-selected="true"]').getAttribute("aria-controls"));
 
   /* ---------- Decisions ---------- */
   var DEC=[
@@ -217,7 +217,7 @@
     host.innerHTML="";
     DEC.forEach(function(dc){
       var box=document.createElement("article");box.className="decision";
-      var h=document.createElement("header");h.innerHTML="<span></span><h3></h3>";h.querySelector("span").textContent=dc.when;h.querySelector("h3").textContent=dc.t;box.appendChild(h);
+      var h=document.createElement("header");h.innerHTML="<span></span><h2></h2>";h.querySelector("span").textContent=dc.when;h.querySelector("h2").textContent=dc.t;box.appendChild(h);
       dc.o.forEach(function(op){
         var b=document.createElement("button");b.className="opt";b.type="button";b.setAttribute("aria-pressed",mine[dc.k]===op.k);
         b.innerHTML='<span class="radio" aria-hidden="true"></span><span><b></b><small></small></span><span class="who"></span>';
@@ -298,6 +298,15 @@
   var heart='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>';
   var noteEl=document.getElementById("note"),noteSt=document.getElementById("note-state"),noteT=null;
   noteEl.addEventListener("input",function(){clearTimeout(noteT);noteSt.textContent="Guardando…";noteT=setTimeout(function(){var v=noteEl.value.slice(0,1000);if(v)mine.note=v;else delete mine.note;save();noteSt.textContent="Guardado";},700);});
+  /* Inicio: lo que falta por decidir */
+  function renderTodo(){var pend=DEC.filter(function(d){return !mine[d.k];}),diff=DEC.filter(function(d){if(!mine[d.k])return false;
+      return Object.keys(all).some(function(id){return id!==uid&&all[id]&&all[id][d.k]&&all[id][d.k]!==mine[d.k];});});
+    var b=document.getElementById("badge");if(b){b.textContent=pend.length;b.hidden=!pend.length;}
+    var card=document.getElementById("home-todo");if(!card)return;
+    if(!pend.length&&!diff.length){card.hidden=true;return;}
+    card.hidden=false;
+    document.getElementById("todo-t").textContent=pend.length?("Te "+(pend.length===1?"falta 1 votación":"faltan "+pend.length+" votaciones")):("No coincidís en "+diff.length+(diff.length===1?" decisión":" decisiones"));
+    document.getElementById("todo-s").textContent=(pend.length?pend:diff).map(function(d){return d.t;}).join(" · ");}
   function renderSel(){
     if(document.activeElement!==noteEl)noteEl.value=mine.note||"";
     var wl=document.getElementById("sel-wish"),vl=document.getElementById("sel-vote");if(!wl)return;
@@ -316,7 +325,7 @@
     if(!n){wl.innerHTML='<li class="sel-empty" style="display:block;border:0">Todavía nada. Tocad el corazón en cualquier plan de «Todo lo que se puede hacer».</li>';}
     var v=0;DEC.forEach(function(dc){var o=dc.o.filter(function(x){return x.k===mine[dc.k];})[0];var li=document.createElement("li");li.style.gridTemplateColumns="minmax(0,1fr)";
       li.innerHTML="<span><small></small><b></b></span>";li.querySelector("small").textContent=dc.t;li.querySelector("b").textContent=o?o.n:"Sin elegir";if(!o)li.querySelector("b").style.color="var(--muted)";else v++;vl.appendChild(li);});
-    var b=document.getElementById("badge");if(b){b.textContent=n+v;b.hidden=!(n+v);}
+    renderTodo();
   }
   var EXTRA={
     colosseo:{l:"El anfiteatro más grande del mundo romano: 50.000 espectadores, luchas de gladiadores y cacerías de fieras. Con la misma entrada se visita el Foro, el centro político de Roma, y el Palatino, la colina donde vivían los emperadores.",dur:"3–4 horas",best:"A primera hora",tip:"Subid primero al Palatino: desde arriba se entiende todo el Foro y hay menos gente.",q:"Colosseum interior arena Rome"},
@@ -701,10 +710,7 @@
   function fallback(t){noteEl.value=noteEl.value;var ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");shSt.textContent="Copiado.";}catch(e){shSt.textContent="No se ha podido copiar.";}ta.remove();}
   document.getElementById("copy-btn").addEventListener("click",function(){copyTxt(summary());});
 
-  /* ---------- App bar ---------- */
-  (function(){var links=[].slice.call(document.querySelectorAll(".appbar a"));
-    function upd(){var y=window.scrollY+window.innerHeight*0.35,cur=null;links.forEach(function(l){var el=document.getElementById(l.dataset.sec);if(el&&el.offsetTop<=y)cur=l;});links.forEach(function(l){l.classList.toggle("on",l===cur);});}
-    window.addEventListener("scroll",upd,{passive:true});upd();})();
+
 
   /* ---------- Pack list ---------- */
   var saved=Sync.packing;

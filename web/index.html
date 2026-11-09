@@ -84,6 +84,7 @@
 
 <main class="shell" id="main">
 
+<div class="screen" id="s-inicio" data-screen="inicio">
   <!-- HERO -->
   <header class="hero">
     <img src="hero.jpg" alt="El Coliseo al atardecer, con el sol entrando por sus arcos">
@@ -100,15 +101,163 @@
       </div>
     </div>
   </header>
+    <section class="home" aria-label="Resumen">
+      <a class="todo" id="home-todo" href="#decidir" hidden><span class="todo-ic" aria-hidden="true">!</span><span><b id="todo-t"></b><small id="todo-s"></small></span><span aria-hidden="true">›</span></a>
+      <div class="home-grid">
+        <a class="home-card" href="#plan"><span class="kicker">El plan</span><b>4 días, día a día</b><small>Con el mapa de cada día</small></a>
+        <a class="home-card" href="#explorar"><span class="kicker">Explorar</span><b>36 planes y 14 platos</b><small>Marca lo que te apetece</small></a>
+      </div>
+      <div class="sel-box home-feed"><h2 class="feed-h">Novedades</h2><ul class="feed" id="feed"></ul></div>
+    </section>
 
+  <!-- SORPRESA -->
+  <section class="secret" id="sorpresa" aria-labelledby="secret-h">
+    <div>
+      <span class="kicker">Viernes por la noche</span>
+      <h2 id="secret-h">La sorpresa</h2>
+      <ul>
+        <li>Ponte elegante. Mete en la maleta algo con lo que te sientas guapa.</li>
+        <li>Un abrigo bonito: en febrero, en Roma, refresca por la noche.</li>
+        <li>Zapatos con los que puedas pasear un poco.</li>
+        <li>Salimos de casa a las 19:30.</li>
+      </ul>
+    </div>
+    <div class="seal-box">
+      <button class="seal" id="seal" aria-describedby="seal-msg" aria-label="Abrir el sobre"><span>SPQR</span></button>
+      <p class="seal-msg" id="seal-msg">Sellado hasta el 1 de enero.</p>
+    </div>
+    <div class="reveal" id="reveal" hidden></div>
+  </section>
   <div class="facts">
     <div class="fact"><span class="label">Salida</span><strong>Jueves 25 · 17:00</strong><small>Valencia → Roma Fiumicino, unas 2 h de vuelo</small></div>
     <div class="fact"><span class="label">Casa</span><strong>Monti · Esquilino</strong><small>Dos habitaciones, a 10 min de Termini y 15 del Coliseo</small></div>
     <div class="fact"><span class="label">Vuelta</span><strong>Domingo 28 · noche</strong><small>Desde Fiumicino</small></div>
   </div>
+</div>
 
+<div class="screen" id="s-plan" data-screen="plan" hidden>
+  <!-- PLAN -->
+  <section class="sec" id="plan" aria-labelledby="plan-h">
+    <div class="screen-head"><h1 id="plan-h">El plan</h1><p>Toca un plan para ver fotos y detalles.</p></div>
+    <div class="tabs-wrap">
+      <div class="tabs" role="tablist" aria-label="Días del viaje">
+        <button class="tab" role="tab" id="t-jueves" aria-controls="jueves" aria-selected="true"><b>Jue</b><span>25 feb</span></button>
+        <button class="tab" role="tab" id="t-viernes" aria-controls="viernes" aria-selected="false" tabindex="-1"><b>Vie</b><span>26 feb</span></button>
+        <button class="tab" role="tab" id="t-sabado" aria-controls="sabado" aria-selected="false" tabindex="-1"><b>Sáb</b><span>27 feb</span></button>
+        <button class="tab" role="tab" id="t-domingo" aria-controls="domingo" aria-selected="false" tabindex="-1"><b>Dom</b><span>28 feb</span></button>
+      </div>
+    </div>
+    <details class="daymap" open><summary>Mapa del día</summary>
+    <div class="mapwrap" id="mapwrap">
+      <div class="map">
+        <svg id="mapsvg" viewBox="0 0 600 480" role="group" aria-label="Mapa con la ruta del día"></svg>
+        <div class="map-badge"><b id="map-title">Jueves</b><span id="map-sub"></span></div>
+        <span class="map-note">Ruta aproximada</span>
+      </div>
+      <ol class="places" id="places" aria-label="Paradas del día" hidden></ol>
+    </div>
+    </details>
+
+    <div class="panel" role="tabpanel" id="jueves" aria-labelledby="t-jueves">
+      <div class="panel-hero"><img src="monti.jpg" alt="Patio arbolado con macetas en una calle de Monti" loading="lazy">
+        <div class="cap"><span class="dow">Jueves</span><h2>Bienvenidos a Roma</h2></div><span class="num">XXV</span></div>
+      <div class="panel-body">
+        <div class="day-col"><div class="day-tools" data-day="jueves"></div>
+        <ol class="steps" data-day="jueves"></ol>
+        <div class="day-add" data-day="jueves" hidden></div></div>
+        <div class="side">
+          <div class="tip"><b>Unos 3 km</b>Paseo corto para la primera noche: el Coliseo iluminado y vacío es otra cosa.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="viernes" aria-labelledby="t-viernes" hidden>
+      <div class="panel-hero"><img src="coliseo.jpg" alt="El Coliseo a la luz de la mañana" loading="lazy">
+        <div class="cap"><span class="dow">Viernes</span><h2>La Roma antigua</h2></div><span class="num">XXVI</span></div>
+      <div class="panel-body">
+        <div class="day-col"><div class="day-tools" data-day="viernes"></div>
+        <ol class="steps" data-day="viernes"></ol>
+        <div class="day-add" data-day="viernes" hidden></div></div>
+        <div class="side">
+          <figure><img src="panteon.jpg" alt="Fachada del Panteón con la fuente de la Piazza della Rotonda" loading="lazy"><figcaption>Panteón</figcaption></figure>
+          <figure><img src="navona.jpg" alt="Placa de mármol de Piazza Navona sobre fachada ocre" loading="lazy"><figcaption>Piazza Navona</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="sabado" aria-labelledby="t-sabado" hidden>
+      <div class="panel-hero"><img src="pompeya.jpg" alt="El Foro de Pompeya con el Vesubio al fondo" loading="lazy">
+        <div class="cap"><span class="dow">Sábado</span><h2>Pompeya</h2></div><span class="num">XXVII</span></div>
+      <div class="panel-body">
+        <div class="day-col"><div class="day-tools" data-day="sabado"></div>
+        <ol class="steps" data-day="sabado"></ol>
+        <div class="day-add" data-day="sabado" hidden></div></div>
+        <div class="side">
+          <figure><img src="pizza.jpg" alt="Pizza margherita napolitana recién horneada" loading="lazy"><figcaption>Margherita en Nápoles</figcaption></figure>
+          <div class="tip"><b>Lleva el DNI</b>Las entradas de Pompeya son nominativas y pueden pedir identificación en la puerta.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="domingo" aria-labelledby="t-domingo" hidden>
+      <div class="panel-hero"><img src="vaticano.jpg" alt="La cúpula de San Pedro iluminada sobre el Tíber de noche" loading="lazy">
+        <div class="cap"><span class="dow">Domingo</span><h2>Hasta pronto, Roma</h2></div><span class="num">XXVIII</span></div>
+      <div class="panel-body">
+        <div class="day-col"><div class="day-tools" data-day="domingo"></div>
+        <ol class="steps" data-day="domingo"></ol>
+        <div class="day-add" data-day="domingo" hidden></div></div>
+        <div class="side">
+          <figure><img src="trevi.jpg" alt="Fontana di Trevi iluminada de noche junto a una farola" loading="lazy"><figcaption>Fontana di Trevi</figcaption></figure>
+          <div class="tip"><b>El día más andado</b>Unos 11 km de San Pedro al Pincio. Zapatillas cómodas y la maleta dejada en casa o en consigna.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <div class="daychips" id="daychips" hidden></div>
+</div>
+
+<div class="screen" id="s-explorar" data-screen="explorar" hidden>
+  <div class="screen-head"><h1>Explorar</h1>
+    <div class="seg" role="tablist" aria-label="Qué ver"><button type="button" role="tab" class="seg-b" id="seg-planes" aria-selected="true" aria-controls="ideas-sec">Planes</button><button type="button" role="tab" class="seg-b" id="seg-comida" aria-selected="false" aria-controls="food-sec">Comida</button></div>
+  </div>
+  <!-- TODA ROMA -->
+  <section class="sec" id="ideas-sec" aria-labelledby="ideas-h">
+    <h2 id="ideas-h" class="vh">Planes</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar planes"></div>
+    <div class="ideas" id="ideas"></div>
+    <button class="more" id="more" type="button" hidden>Ver los 36 planes</button>
+  </section>
+  <!-- COMIDA -->
+  <section class="sec" id="food-sec" aria-labelledby="food-h" hidden>
+    <h2 id="food-h" class="vh">Comida</h2>
+    <div class="dishes" id="dishes"></div>
+  </section>
+</div>
+
+<div class="screen" id="s-decidir" data-screen="decidir" hidden>
+  <!-- VOTOS -->
+  <section class="sec" id="elegir" aria-labelledby="vote-h">
+    <div class="screen-head"><h1 id="vote-h">Decidimos</h1><p class="vote-status live" id="vote-status"><i></i><span>Sincronizando…</span></p></div>
+    <div class="decisions" id="decisions"></div>
+  </section>
+  <!-- SELECCIÓN -->
+  <section class="sec" id="seleccion" aria-labelledby="sel-h">
+    <h2 id="sel-h" class="sub-h">Lo que nos apetece</h2>
+    <div class="sel">
+      <div class="sel-box"><ul class="sel-list" id="sel-wish"></ul></div>
+      <div class="sel-col"><div class="sel-box"><ul class="sel-list" id="sel-vote" hidden></ul>
+        <p class="save-state ok" id="save-state"><i></i><span>Sincronizando…</span></p>
+        <div class="share-row"><button class="btn" id="share-btn" type="button">Compartir la lista</button><button class="btn" id="copy-btn" type="button">Copiar</button></div><small class="note-state" id="share-state"></small></div>
+      <div class="sel-box"><h3><label for="note">Ideas y notas</label></h3><textarea id="note" rows="4" maxlength="1000" placeholder="Sitios que hemos visto en Instagram, cosas que no queremos perdernos…"></textarea><small class="note-state" id="note-state"></small></div></div>
+    </div>
+  </section>
+</div>
+
+<div class="screen" id="s-mas" data-screen="mas" hidden>
+  <div class="screen-head"><h1>Más</h1></div>
+  <nav class="mas-links" aria-label="En esta pantalla"><a href="#casa">La casa</a><a href="#maleta">Maleta</a><a href="#saber">Antes de ir</a><button type="button" id="mas-perfil">Perfil</button></nav>
   <!-- CASA -->
-  <section class="sec" aria-labelledby="casa-h">
+  <section class="sec" id="casa" aria-labelledby="casa-h">
     <div class="sec-head">
       <span class="kicker">La casa</span>
       <h2 id="casa-h">Nuestra casa <em>en Roma</em></h2>
@@ -139,181 +288,6 @@
       </aside>
     </div>
   </section>
-
-  <!-- PLAN -->
-  <section class="sec" id="plan" aria-labelledby="plan-h">
-    <div class="sec-head">
-      <span class="kicker">El plan</span>
-      <h2 id="plan-h">Cuatro días, <em>día a día</em></h2>
-    </div>
-    <div class="tabs-wrap">
-      <div class="tabs" role="tablist" aria-label="Días del viaje">
-        <button class="tab" role="tab" id="t-jueves" aria-controls="jueves" aria-selected="true"><b>Jue</b><span>25 feb</span></button>
-        <button class="tab" role="tab" id="t-viernes" aria-controls="viernes" aria-selected="false" tabindex="-1"><b>Vie</b><span>26 feb</span></button>
-        <button class="tab" role="tab" id="t-sabado" aria-controls="sabado" aria-selected="false" tabindex="-1"><b>Sáb</b><span>27 feb</span></button>
-        <button class="tab" role="tab" id="t-domingo" aria-controls="domingo" aria-selected="false" tabindex="-1"><b>Dom</b><span>28 feb</span></button>
-      </div>
-    </div>
-
-    <div class="panel" role="tabpanel" id="jueves" aria-labelledby="t-jueves">
-      <div class="panel-hero"><img src="monti.jpg" alt="Patio arbolado con macetas en una calle de Monti" loading="lazy">
-        <div class="cap"><span class="dow">Jueves</span><h3>Bienvenidos a Roma</h3></div><span class="num">XXV</span></div>
-      <div class="panel-body">
-        <div class="day-col"><div class="day-tools" data-day="jueves"></div>
-        <ol class="steps" data-day="jueves"></ol>
-        <div class="day-add" data-day="jueves" hidden></div></div>
-        <div class="side">
-          <div class="tip"><b>Unos 3 km</b>Paseo corto para la primera noche: el Coliseo iluminado y vacío es otra cosa.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel" role="tabpanel" id="viernes" aria-labelledby="t-viernes" hidden>
-      <div class="panel-hero"><img src="coliseo.jpg" alt="El Coliseo a la luz de la mañana" loading="lazy">
-        <div class="cap"><span class="dow">Viernes</span><h3>La Roma antigua</h3></div><span class="num">XXVI</span></div>
-      <div class="panel-body">
-        <div class="day-col"><div class="day-tools" data-day="viernes"></div>
-        <ol class="steps" data-day="viernes"></ol>
-        <div class="day-add" data-day="viernes" hidden></div></div>
-        <div class="side">
-          <figure><img src="panteon.jpg" alt="Fachada del Panteón con la fuente de la Piazza della Rotonda" loading="lazy"><figcaption>Panteón</figcaption></figure>
-          <figure><img src="navona.jpg" alt="Placa de mármol de Piazza Navona sobre fachada ocre" loading="lazy"><figcaption>Piazza Navona</figcaption></figure>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel" role="tabpanel" id="sabado" aria-labelledby="t-sabado" hidden>
-      <div class="panel-hero"><img src="pompeya.jpg" alt="El Foro de Pompeya con el Vesubio al fondo" loading="lazy">
-        <div class="cap"><span class="dow">Sábado</span><h3>Pompeya</h3></div><span class="num">XXVII</span></div>
-      <div class="panel-body">
-        <div class="day-col"><div class="day-tools" data-day="sabado"></div>
-        <ol class="steps" data-day="sabado"></ol>
-        <div class="day-add" data-day="sabado" hidden></div></div>
-        <div class="side">
-          <figure><img src="pizza.jpg" alt="Pizza margherita napolitana recién horneada" loading="lazy"><figcaption>Margherita en Nápoles</figcaption></figure>
-          <div class="tip"><b>Lleva el DNI</b>Las entradas de Pompeya son nominativas y pueden pedir identificación en la puerta.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel" role="tabpanel" id="domingo" aria-labelledby="t-domingo" hidden>
-      <div class="panel-hero"><img src="vaticano.jpg" alt="La cúpula de San Pedro iluminada sobre el Tíber de noche" loading="lazy">
-        <div class="cap"><span class="dow">Domingo</span><h3>Hasta pronto, Roma</h3></div><span class="num">XXVIII</span></div>
-      <div class="panel-body">
-        <div class="day-col"><div class="day-tools" data-day="domingo"></div>
-        <ol class="steps" data-day="domingo"></ol>
-        <div class="day-add" data-day="domingo" hidden></div></div>
-        <div class="side">
-          <figure><img src="trevi.jpg" alt="Fontana di Trevi iluminada de noche junto a una farola" loading="lazy"><figcaption>Fontana di Trevi</figcaption></figure>
-          <div class="tip"><b>El día más andado</b>Unos 11 km de San Pedro al Pincio. Zapatillas cómodas y la maleta dejada en casa o en consigna.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAPA -->
-  <section class="sec" id="mapa" aria-labelledby="map-h">
-    <div class="sec-head">
-      <span class="kicker">El mapa</span>
-      <h2 id="map-h">La ruta <em>de cada día</em></h2>
-      <p>Elige un día para ver su recorrido a pie. Toca una parada para abrirla en Google Maps.</p>
-    </div>
-    <div class="daychips" id="daychips" role="group" aria-label="Día del mapa">
-      <button class="chip" data-day="jueves" style="--c:var(--d-jue)" aria-pressed="true"><i></i>Jueves</button>
-      <button class="chip" data-day="viernes" style="--c:var(--d-vie)" aria-pressed="false"><i></i>Viernes</button>
-      <button class="chip" data-day="sabado" style="--c:var(--d-sab)" aria-pressed="false"><i></i>Sábado</button>
-      <button class="chip" data-day="domingo" style="--c:var(--d-dom)" aria-pressed="false"><i></i>Domingo</button>
-    </div>
-    <div class="mapwrap" id="mapwrap">
-      <div class="map">
-        <svg id="mapsvg" viewBox="0 0 600 480" role="group" aria-label="Mapa con la ruta del día"></svg>
-        <div class="map-badge"><b id="map-title">Jueves</b><span id="map-sub"></span></div>
-        <span class="map-note">Ruta aproximada</span>
-      </div>
-      <ol class="places" id="places" aria-label="Paradas del día"></ol>
-    </div>
-  </section>
-
-  <!-- TODA ROMA -->
-  <section class="sec" id="ideas-sec" aria-labelledby="ideas-h">
-    <div class="sec-head">
-      <span class="kicker">Toda Roma</span>
-      <h2 id="ideas-h">Todo lo que <em>se puede hacer</em></h2>
-      <p>Lo que ya está en el plan y lo que podemos añadir. Marcad con el corazón lo que os apetezca y luego elegid qué día lo hacéis.</p>
-    </div>
-    <div class="filters" id="filters" role="group" aria-label="Filtrar planes"></div>
-    <div class="ideas" id="ideas"></div>
-    <button class="more" id="more" type="button" hidden>Ver los 36 planes</button>
-  </section>
-
-  <!-- VOTOS -->
-  <section class="sec" id="elegir" aria-labelledby="vote-h">
-    <div class="sec-head">
-      <span class="kicker">Entre los dos</span>
-      <h2 id="vote-h">Lo decidimos <em>entre los dos</em></h2>
-      <p>Cuatro decisiones para tomar juntos. Se pueden cambiar cuando queráis.</p>
-      <p class="vote-status live" id="vote-status"><i></i><span>Sincronizando…</span></p>
-    </div>
-    <div class="decisions" id="decisions"></div>
-  </section>
-
-  <!-- SELECCIÓN -->
-  <section class="sec" id="seleccion" aria-labelledby="sel-h">
-    <div class="sec-head">
-      <span class="kicker">Nuestra lista</span>
-      <h2 id="sel-h">Lo que <em>hemos elegido</em></h2>
-      <p>Lo que marca cada uno lo ve el otro al momento. Asignad a cada plan un día y apuntad lo que se os ocurra.</p>
-    </div>
-    <div class="sel">
-      <div class="sel-box"><h3>Planes que nos apetecen</h3><ul class="sel-list" id="sel-wish"></ul></div>
-      <div class="sel-col"><div class="sel-box"><h3>Lo que hemos votado</h3><ul class="sel-list" id="sel-vote"></ul>
-        <p class="save-state ok" id="save-state"><i></i><span>Sincronizando…</span></p>
-        <div class="share-row"><button class="btn" id="share-btn" type="button">Compartir la lista</button><button class="btn" id="copy-btn" type="button">Copiar</button></div><small class="note-state" id="share-state"></small></div>
-      <div class="sel-box"><h3>Novedades</h3><ul class="feed" id="feed"></ul></div>
-      <div class="sel-box"><h3><label for="note">Ideas y notas</label></h3><textarea id="note" rows="4" maxlength="1000" placeholder="Sitios que hemos visto en Instagram, cosas que no queremos perdernos…"></textarea><small class="note-state" id="note-state"></small></div></div>
-    </div>
-  </section>
-
-  <!-- COMIDA -->
-  <section class="sec" aria-labelledby="food-h">
-    <div class="sec-head">
-      <span class="kicker">A la mesa</span>
-      <h2 id="food-h">Qué <em>probar</em></h2>
-      <p>Lo que no puede faltar estos cuatro días.</p>
-    </div>
-    <div class="dishes" id="dishes"></div>
-  </section>
-
-  <!-- SORPRESA -->
-  <section class="secret" aria-labelledby="secret-h">
-    <div>
-      <span class="kicker">Viernes por la noche</span>
-      <h2 id="secret-h">La sorpresa</h2>
-      <ul>
-        <li>Ponte elegante. Mete en la maleta algo con lo que te sientas guapa.</li>
-        <li>Un abrigo bonito: en febrero, en Roma, refresca por la noche.</li>
-        <li>Zapatos con los que puedas pasear un poco.</li>
-        <li>Salimos de casa a las 19:30.</li>
-      </ul>
-    </div>
-    <div class="seal-box">
-      <button class="seal" id="seal" aria-describedby="seal-msg" aria-label="Abrir el sobre"><span>SPQR</span></button>
-      <p class="seal-msg" id="seal-msg">Sellado hasta el 1 de enero.</p>
-    </div>
-    <div class="reveal" id="reveal" hidden></div>
-  </section>
-
-  <!-- SABER -->
-  <section class="sec" aria-labelledby="know-h">
-    <div class="sec-head"><span class="kicker">Antes de ir</span><h2 id="know-h">Bueno saber</h2></div>
-    <div class="grid4">
-      <div class="card"><span class="big">4–15 °C</span><h3>El tiempo</h3><p>Mañanas frescas y mediodías templados. Puede caer algún chaparrón: paraguas plegable.</p></div>
-      <div class="card"><span class="big">DNI</span><h3>En Pompeya</h3><p>Las entradas son nominativas y pueden pedir identificación en la puerta.</p></div>
-      <div class="card"><span class="big">~30 km</span><h3>En cuatro días</h3><p>Roma se ve a pie y Pompeya es empedrado sin sombra. Zapatillas cómodas y tiritas.</p></div>
-      <div class="card"><span class="big">€</span><h3>Tasa turística</h3><p>Unos 5–6 € por persona y noche. Con Airbnb se suele pagar ya al reservar; si no, la pide la anfitriona.</p></div>
-    </div>
-  </section>
-
   <section class="sec" id="maleta" aria-labelledby="pack-h">
     <div class="sec-head"><span class="kicker">En la maleta</span><h2 id="pack-h">Qué llevar</h2><p class="progress" id="progress">0 de 8 listos</p></div>
     <ul class="pack" id="pack">
@@ -327,11 +301,22 @@
       <li><label><input type="checkbox" id="p-sun"><span>Gafas de sol</span></label></li>
     </ul>
   </section>
-
+  <!-- SABER -->
+  <section class="sec" id="saber" aria-labelledby="know-h">
+    <div class="sec-head"><span class="kicker">Antes de ir</span><h2 id="know-h">Bueno saber</h2></div>
+    <div class="grid4">
+      <div class="card"><span class="big">4–15 °C</span><h3>El tiempo</h3><p>Mañanas frescas y mediodías templados. Puede caer algún chaparrón: paraguas plegable.</p></div>
+      <div class="card"><span class="big">DNI</span><h3>En Pompeya</h3><p>Las entradas son nominativas y pueden pedir identificación en la puerta.</p></div>
+      <div class="card"><span class="big">~30 km</span><h3>En cuatro días</h3><p>Roma se ve a pie y Pompeya es empedrado sin sombra. Zapatillas cómodas y tiritas.</p></div>
+      <div class="card"><span class="big">€</span><h3>Tasa turística</h3><p>Unos 5–6 € por persona y noche. Con Airbnb se suele pagar ya al reservar; si no, la pide la anfitriona.</p></div>
+    </div>
+  </section>
   <footer>
     <p class="bye">Buen viaje.</p>
     <details class="credits"><summary>Créditos de las fotos</summary><small>Fotos de la casa: anuncio de Airbnb de la anfitriona. Fotos de los planes, de Wikimedia Commons: Coliseo, Diliff (CC BY-SA 2.5) · Coliseo de noche, Martin Falbisoner (CC BY-SA 3.0) · Capilla Sixtina, Michelangelo (CC BY-SA 3.0) · Plaza de San Pedro, Diliff (CC BY-SA 3.0) · Cúpula de San Pedro, Livioandronico2013 (CC BY-SA 4.0) · Panteón, Wilfredor (CC0) · Trevi, Wilfredor (CC0) · Fuente de los Cuatro Ríos, Timothy A. Gonsalves (CC BY-SA 4.0) · Plaza de España, Diego Delso (CC BY-SA 4.0) · Apolo y Dafne, Alvesgaspar (CC BY-SA 4.0) · Campidoglio, Diana Ringo (CC BY-SA 3.0) · Fresco de la villa de Livia, Gleb Simonov (CC0) · Mosaico de San Clemente, Rita1234 (CC BY-SA 3.0) · Moisés, Phyrexian (dominio público) · Santa Maria Maggiore, Livioandronico2013 (CC BY-SA 4.0) · Sant'Ignazio, Wilfredor (CC0) · Cripta de los Capuchinos, Anil Öztas (CC BY 4.0) · Domus Aurea, Ufficio Stampa (dominio público) · Termas de Caracalla, СССР (CC BY-SA 2.5 ca) · Largo Argentina, Pierfelice Licitra (CC BY 3.0) · Cerradura del Aventino, Galen Crout galen_crout (CC0) · Giardino degli Aranci, Diego Delso (CC BY-SA 4.0) · Piazza del Popolo, Krzysztof Golik (CC BY-SA 4.0) · Vittoriano, Alvesgaspar (CC BY-SA 4.0) · Santa Maria in Trastevere, Krzysztof Golik (CC BY-SA 4.0) · Campo de' Fiori, Myrabella (CC BY-SA 3.0) · Pórtico de Octavia, Fallaner (CC BY-SA 4.0) · Mercado de Testaccio, Lalupa (CC BY-SA 4.0) · Pasta fresca, Pasquale Paolo Cardo from Finale Ligure  (CC BY 2.0) · Via Margutta, Lalupa (dominio público) · Coppedè, Andrea Bertozzi (CC BY-SA 4.0) · Isola Tiberina, Diego Delso (CC BY-SA 4.0) · Via Appia, Livioandronico2013 (CC BY-SA 4.0) · Ostia Antica, Rabax63 (CC BY-SA 4.0) · Villa d'Este, Palickap (CC BY-SA 4.0).<br> Fotos de Roma y Pompeya, de Wikimedia Commons: Coliseo al atardecer, Quentin Lowagie (CC BY 4.0) · Coliseo, Gilbert Bochenek (CC BY 3.0) · Monti, trolvag (CC BY-SA 3.0) · Panteón, Rabax63 (CC BY-SA 4.0) · Piazza Navona, Dietmar Rabich (CC BY-SA 4.0) · Foro de Pompeya, Gary Todd (CC0) · Pizza margherita, Kos88 (CC BY-SA 4.0) · San Pedro y el Tíber, Jebulon (CC BY-SA 3.0) · Fontana di Trevi, John Samuel (CC BY-SA 4.0).<br>Comida y restaurantes, de Wikimedia Commons: Carbonara, Trishhhh (CC BY 2.0) · Cacio e pepe, Camelia.boban (CC BY-SA 4.0) · Amatriciana, stu_spivack (CC BY-SA 2.0) · Alcachofa a la judía, Mon Œil (CC BY 2.0) · Supplì, FrederikBianko (CC BY-SA 3.0) · Pizza al taglio, Arnaud 25 (CC0) · Maritozzo, Serenapaliria (CC BY-SA 4.0) · Cornetto y cappuccino, Ensahequ (CC BY-SA 4.0) · Tiramisú, Francesc Fort (CC BY-SA 4.0) · Gelateria, Lasagnolo9 (CC BY-SA 4.0) · Pizza napolitana, ウィ貴公子 (CC BY-SA 4.0) · Sfogliatella, Alpha (CC BY-SA 2.0) · Castel Sant'Angelo, patano (CC BY-SA 3.0) · Via dei Tribunali, Armando Mancini (CC BY-SA 2.0) · Pizzeria Sorbillo, Mister No (CC BY 3.0) · Via della Madonna dei Monti, Moyan Brenn (CC BY 2.0). Las demás fotos de comida se cargan de Wikimedia Commons con su autor en cada ficha.</small></details>
   </footer>
+</div>
+
 </main>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" aria-hidden="true">
@@ -375,12 +360,12 @@
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"><span></span><button type="button" hidden>Deshacer</button></div>
 
-<nav class="appbar" aria-label="Secciones">
-  <a href="#plan" data-sec="plan"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Plan</a>
-  <a href="#mapa" data-sec="mapa"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Mapa</a>
-  <a href="#ideas-sec" data-sec="ideas-sec"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>Planes</a>
-  <a href="#seleccion" data-sec="seleccion"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg>Elegido<span class="badge" id="badge" hidden>0</span></a>
-  <a href="#maleta" data-sec="maleta"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>Maleta</a>
+<nav class="appbar" aria-label="Pantallas">
+  <a href="#inicio" data-screen="inicio"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 01-1 1h-5v-6h-4v6H5a1 1 0 01-1-1z"/></svg>Inicio</a>
+  <a href="#plan" data-screen="plan"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Plan</a>
+  <a href="#explorar" data-screen="explorar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Explorar</a>
+  <a href="#decidir" data-screen="decidir"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg>Decidir<span class="badge" id="badge" hidden>0</span></a>
+  <a href="#mas" data-screen="mas"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>Más</a>
 </nav>
 
 <script type="module" src="/src/main.js"></script>
