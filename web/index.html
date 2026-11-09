@@ -79,10 +79,10 @@
   </div>
 </div>
 
-<div class="install" id="install" hidden><span>Instálala: <b>Compartir</b> → <b>Añadir a pantalla de inicio</b></span><button type="button" id="install-x" aria-label="Cerrar">×</button></div>
+<div class="install" id="install" role="status" hidden><span>Instálala: <b>Compartir</b> → <b>Añadir a pantalla de inicio</b></span><button type="button" id="install-x" aria-label="Cerrar">×</button></div>
 
 
-<div class="shell">
+<main class="shell" id="main">
 
   <!-- HERO -->
   <header class="hero">
@@ -103,7 +103,7 @@
 
   <div class="facts">
     <div class="fact"><span class="label">Salida</span><strong>Jueves 25 · 17:00</strong><small>Valencia → Roma Fiumicino, unas 2 h de vuelo</small></div>
-    <div class="fact"><span class="label">Casa</span><strong>Monti · Esquilino</strong><small>Dos habitaciones, a 10 min del Coliseo y de Termini</small></div>
+    <div class="fact"><span class="label">Casa</span><strong>Monti · Esquilino</strong><small>Dos habitaciones, a 10 min de Termini y 15 del Coliseo</small></div>
     <div class="fact"><span class="label">Vuelta</span><strong>Domingo 28 · noche</strong><small>Desde Fiumicino</small></div>
   </div>
 
@@ -132,7 +132,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6M3 18h18M3 18v2M21 18v2M6 10V7a2 2 0 012-2h8a2 2 0 012 2v3"/></svg><div><b>Dos habitaciones dobles</b><br><span>Una con salita, la otra con porche</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V9l6-5 6 5v11M10 20v-6h4v6"/></svg><div><b>Edificio histórico</b><br><span>Primer piso, frente al metro Vittorio Emanuele</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10l-1 14a3 3 0 01-3 3h-2a3 3 0 01-3-3z"/><path d="M17 8h2a2 2 0 010 4h-2.3"/></svg><div><b>Rincón de café y té</b><br><span>Cafetera, hervidor y algo para picar</span></div></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>10 min andando</b><br><span>A Termini, Coliseo y Foros</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>10 min andando</b><br><span>A Termini; al Coliseo, unos 15</span></div></li>
         </ul>
         <a class="btn" href="https://www.airbnb.es/rooms/878195513154458289" target="_blank" rel="noopener">Ver el anuncio
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
@@ -148,14 +148,14 @@
     </div>
     <div class="tabs-wrap">
       <div class="tabs" role="tablist" aria-label="Días del viaje">
-        <button class="tab" role="tab" id="t-jueves" aria-controls="jueves" aria-selected="true"><b>Jue</b><span>XXV</span></button>
-        <button class="tab" role="tab" id="t-viernes" aria-controls="viernes" aria-selected="false" tabindex="-1"><b>Vie</b><span>XXVI</span></button>
-        <button class="tab" role="tab" id="t-sabado" aria-controls="sabado" aria-selected="false" tabindex="-1"><b>Sáb</b><span>XXVII</span></button>
-        <button class="tab" role="tab" id="t-domingo" aria-controls="domingo" aria-selected="false" tabindex="-1"><b>Dom</b><span>XXVIII</span></button>
+        <button class="tab" role="tab" id="t-jueves" aria-controls="jueves" aria-selected="true"><b>Jue</b><span>25 feb</span></button>
+        <button class="tab" role="tab" id="t-viernes" aria-controls="viernes" aria-selected="false" tabindex="-1"><b>Vie</b><span>26 feb</span></button>
+        <button class="tab" role="tab" id="t-sabado" aria-controls="sabado" aria-selected="false" tabindex="-1"><b>Sáb</b><span>27 feb</span></button>
+        <button class="tab" role="tab" id="t-domingo" aria-controls="domingo" aria-selected="false" tabindex="-1"><b>Dom</b><span>28 feb</span></button>
       </div>
     </div>
 
-    <article class="panel" role="tabpanel" id="jueves" aria-labelledby="t-jueves">
+    <div class="panel" role="tabpanel" id="jueves" aria-labelledby="t-jueves">
       <div class="panel-hero"><img src="monti.jpg" alt="Patio arbolado con macetas en una calle de Monti" loading="lazy">
         <div class="cap"><span class="dow">Jueves</span><h3>Bienvenidos a Roma</h3></div><span class="num">XXV</span></div>
       <div class="panel-body">
@@ -166,9 +166,9 @@
           <div class="tip"><b>Unos 3 km</b>Paseo corto para la primera noche: el Coliseo iluminado y vacío es otra cosa.</div>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="panel" role="tabpanel" id="viernes" aria-labelledby="t-viernes" hidden>
+    <div class="panel" role="tabpanel" id="viernes" aria-labelledby="t-viernes" hidden>
       <div class="panel-hero"><img src="coliseo.jpg" alt="El Coliseo a la luz de la mañana" loading="lazy">
         <div class="cap"><span class="dow">Viernes</span><h3>La Roma antigua</h3></div><span class="num">XXVI</span></div>
       <div class="panel-body">
@@ -180,9 +180,9 @@
           <figure><img src="navona.jpg" alt="Placa de mármol de Piazza Navona sobre fachada ocre" loading="lazy"><figcaption>Piazza Navona</figcaption></figure>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="panel" role="tabpanel" id="sabado" aria-labelledby="t-sabado" hidden>
+    <div class="panel" role="tabpanel" id="sabado" aria-labelledby="t-sabado" hidden>
       <div class="panel-hero"><img src="pompeya.jpg" alt="El Foro de Pompeya con el Vesubio al fondo" loading="lazy">
         <div class="cap"><span class="dow">Sábado</span><h3>Pompeya</h3></div><span class="num">XXVII</span></div>
       <div class="panel-body">
@@ -194,9 +194,9 @@
           <div class="tip"><b>Lleva el DNI</b>Las entradas de Pompeya son nominativas y pueden pedir identificación en la puerta.</div>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="panel" role="tabpanel" id="domingo" aria-labelledby="t-domingo" hidden>
+    <div class="panel" role="tabpanel" id="domingo" aria-labelledby="t-domingo" hidden>
       <div class="panel-hero"><img src="vaticano.jpg" alt="La cúpula de San Pedro iluminada sobre el Tíber de noche" loading="lazy">
         <div class="cap"><span class="dow">Domingo</span><h3>Hasta pronto, Roma</h3></div><span class="num">XXVIII</span></div>
       <div class="panel-body">
@@ -208,7 +208,7 @@
           <div class="tip"><b>El día más andado</b>Unos 11 km de San Pedro al Pincio. Zapatillas cómodas y la maleta dejada en casa o en consigna.</div>
         </div>
       </div>
-    </article>
+    </div>
   </section>
 
   <!-- MAPA -->
@@ -226,7 +226,7 @@
     </div>
     <div class="mapwrap" id="mapwrap">
       <div class="map">
-        <svg id="mapsvg" viewBox="0 0 600 480" role="img" aria-label="Mapa con la ruta del día"></svg>
+        <svg id="mapsvg" viewBox="0 0 600 480" role="group" aria-label="Mapa con la ruta del día"></svg>
         <div class="map-badge"><b id="map-title">Jueves</b><span id="map-sub"></span></div>
         <span class="map-note">Ruta aproximada</span>
       </div>
@@ -306,10 +306,10 @@
   <section class="sec" aria-labelledby="know-h">
     <div class="sec-head"><span class="kicker">Antes de ir</span><h2 id="know-h">Bueno saber</h2></div>
     <div class="grid4">
-      <div class="card"><span class="big">6–19 °C</span><h3>El tiempo</h3><p>Mañanas frescas y mediodías templados. Puede caer algún chaparrón: paraguas plegable.</p></div>
+      <div class="card"><span class="big">4–15 °C</span><h3>El tiempo</h3><p>Mañanas frescas y mediodías templados. Puede caer algún chaparrón: paraguas plegable.</p></div>
       <div class="card"><span class="big">DNI</span><h3>En Pompeya</h3><p>Las entradas son nominativas y pueden pedir identificación en la puerta.</p></div>
       <div class="card"><span class="big">~30 km</span><h3>En cuatro días</h3><p>Roma se ve a pie y Pompeya es empedrado sin sombra. Zapatillas cómodas y tiritas.</p></div>
-      <div class="card"><span class="big">€</span><h3>Tasa turística</h3><p>Roma la cobra por persona y noche. Se paga al llegar al alojamiento.</p></div>
+      <div class="card"><span class="big">€</span><h3>Tasa turística</h3><p>Unos 5–6 € por persona y noche. Con Airbnb se suele pagar ya al reservar; si no, la pide la anfitriona.</p></div>
     </div>
   </section>
 
@@ -329,9 +329,9 @@
 
   <footer>
     <p class="bye">Buen viaje.</p>
-    <small>Fotos de la casa: anuncio de Airbnb de la anfitriona. Fotos de los planes, de Wikimedia Commons: Coliseo, Diliff (CC BY-SA 2.5) · Coliseo de noche, Martin Falbisoner (CC BY-SA 3.0) · Capilla Sixtina, Michelangelo (CC BY-SA 3.0) · Plaza de San Pedro, Diliff (CC BY-SA 3.0) · Cúpula de San Pedro, Livioandronico2013 (CC BY-SA 4.0) · Panteón, Wilfredor (CC0) · Trevi, Wilfredor (CC0) · Fuente de los Cuatro Ríos, Timothy A. Gonsalves (CC BY-SA 4.0) · Plaza de España, Diego Delso (CC BY-SA 4.0) · Apolo y Dafne, Alvesgaspar (CC BY-SA 4.0) · Campidoglio, Diana Ringo (CC BY-SA 3.0) · Fresco de la villa de Livia, Gleb Simonov (CC0) · Mosaico de San Clemente, Rita1234 (CC BY-SA 3.0) · Moisés, Phyrexian (Public domain) · Santa Maria Maggiore, Livioandronico2013 (CC BY-SA 4.0) · Sant'Ignazio, Wilfredor (CC0) · Cripta de los Capuchinos, Anil Öztas (CC BY 4.0) · Domus Aurea, Unknown authorUnknown author, Ufficio St (Public domain) · Termas de Caracalla, СССР (CC BY-SA 2.5 ca) · Largo Argentina, Pierfelice Licitra (CC BY 3.0) · Cerradura del Aventino, Galen Crout galen_crout (CC0) · Giardino degli Aranci, Diego Delso (CC BY-SA 4.0) · Piazza del Popolo, Krzysztof Golik (CC BY-SA 4.0) · Vittoriano, Alvesgaspar (CC BY-SA 4.0) · Santa Maria in Trastevere, Krzysztof Golik (CC BY-SA 4.0) · Campo de' Fiori, Myrabella (CC BY-SA 3.0) · Pórtico de Octavia, Fallaner (CC BY-SA 4.0) · Mercado de Testaccio, Lalupa (CC BY-SA 4.0) · Pasta fresca, Pasquale Paolo Cardo from Finale Ligure  (CC BY 2.0) · Via Margutta, user:Lalupa (Public domain) · Coppedè, This Photo was taken by Andrea Bertozzi. (CC BY-SA 4.0) · Isola Tiberina, Diego Delso (CC BY-SA 4.0) · Via Appia, Livioandronico2013 (CC BY-SA 4.0) · Ostia Antica, Rabax63 (CC BY-SA 4.0) · Villa d'Este, Palickap (CC BY-SA 4.0).<br> Fotos de Roma y Pompeya, de Wikimedia Commons: Coliseo al atardecer, Quentin Lowagie (CC BY 4.0) · Coliseo, Gilbert Bochenek (CC BY 3.0) · Monti, trolvag (CC BY-SA 3.0) · Panteón, Rabax63 (CC BY-SA 4.0) · Piazza Navona, Dietmar Rabich (CC BY-SA 4.0) · Foro de Pompeya, Gary Todd (CC0) · Pizza margherita, Kos88 (CC BY-SA 4.0) · San Pedro y el Tíber, Jebulon (CC BY-SA 3.0) · Fontana di Trevi, John Samuel (CC BY-SA 4.0).</small>
+    <details class="credits"><summary>Créditos de las fotos</summary><small>Fotos de la casa: anuncio de Airbnb de la anfitriona. Fotos de los planes, de Wikimedia Commons: Coliseo, Diliff (CC BY-SA 2.5) · Coliseo de noche, Martin Falbisoner (CC BY-SA 3.0) · Capilla Sixtina, Michelangelo (CC BY-SA 3.0) · Plaza de San Pedro, Diliff (CC BY-SA 3.0) · Cúpula de San Pedro, Livioandronico2013 (CC BY-SA 4.0) · Panteón, Wilfredor (CC0) · Trevi, Wilfredor (CC0) · Fuente de los Cuatro Ríos, Timothy A. Gonsalves (CC BY-SA 4.0) · Plaza de España, Diego Delso (CC BY-SA 4.0) · Apolo y Dafne, Alvesgaspar (CC BY-SA 4.0) · Campidoglio, Diana Ringo (CC BY-SA 3.0) · Fresco de la villa de Livia, Gleb Simonov (CC0) · Mosaico de San Clemente, Rita1234 (CC BY-SA 3.0) · Moisés, Phyrexian (dominio público) · Santa Maria Maggiore, Livioandronico2013 (CC BY-SA 4.0) · Sant'Ignazio, Wilfredor (CC0) · Cripta de los Capuchinos, Anil Öztas (CC BY 4.0) · Domus Aurea, Ufficio Stampa (dominio público) · Termas de Caracalla, СССР (CC BY-SA 2.5 ca) · Largo Argentina, Pierfelice Licitra (CC BY 3.0) · Cerradura del Aventino, Galen Crout galen_crout (CC0) · Giardino degli Aranci, Diego Delso (CC BY-SA 4.0) · Piazza del Popolo, Krzysztof Golik (CC BY-SA 4.0) · Vittoriano, Alvesgaspar (CC BY-SA 4.0) · Santa Maria in Trastevere, Krzysztof Golik (CC BY-SA 4.0) · Campo de' Fiori, Myrabella (CC BY-SA 3.0) · Pórtico de Octavia, Fallaner (CC BY-SA 4.0) · Mercado de Testaccio, Lalupa (CC BY-SA 4.0) · Pasta fresca, Pasquale Paolo Cardo from Finale Ligure  (CC BY 2.0) · Via Margutta, Lalupa (dominio público) · Coppedè, Andrea Bertozzi (CC BY-SA 4.0) · Isola Tiberina, Diego Delso (CC BY-SA 4.0) · Via Appia, Livioandronico2013 (CC BY-SA 4.0) · Ostia Antica, Rabax63 (CC BY-SA 4.0) · Villa d'Este, Palickap (CC BY-SA 4.0).<br> Fotos de Roma y Pompeya, de Wikimedia Commons: Coliseo al atardecer, Quentin Lowagie (CC BY 4.0) · Coliseo, Gilbert Bochenek (CC BY 3.0) · Monti, trolvag (CC BY-SA 3.0) · Panteón, Rabax63 (CC BY-SA 4.0) · Piazza Navona, Dietmar Rabich (CC BY-SA 4.0) · Foro de Pompeya, Gary Todd (CC0) · Pizza margherita, Kos88 (CC BY-SA 4.0) · San Pedro y el Tíber, Jebulon (CC BY-SA 3.0) · Fontana di Trevi, John Samuel (CC BY-SA 4.0).<br>Comida y restaurantes, de Wikimedia Commons: Carbonara, Trishhhh (CC BY 2.0) · Cacio e pepe, Camelia.boban (CC BY-SA 4.0) · Amatriciana, stu_spivack (CC BY-SA 2.0) · Alcachofa a la judía, Mon Œil (CC BY 2.0) · Supplì, FrederikBianko (CC BY-SA 3.0) · Pizza al taglio, Arnaud 25 (CC0) · Maritozzo, Serenapaliria (CC BY-SA 4.0) · Cornetto y cappuccino, Ensahequ (CC BY-SA 4.0) · Tiramisú, Francesc Fort (CC BY-SA 4.0) · Gelateria, Lasagnolo9 (CC BY-SA 4.0) · Pizza napolitana, ウィ貴公子 (CC BY-SA 4.0) · Sfogliatella, Alpha (CC BY-SA 2.0) · Castel Sant'Angelo, patano (CC BY-SA 3.0) · Via dei Tribunali, Armando Mancini (CC BY-SA 2.0) · Pizzeria Sorbillo, Mister No (CC BY 3.0) · Via della Madonna dei Monti, Moyan Brenn (CC BY 2.0). Las demás fotos de comida se cargan de Wikimedia Commons con su autor en cada ficha.</small></details>
   </footer>
-</div>
+</main>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" aria-hidden="true">
   <div class="sheet-bar">

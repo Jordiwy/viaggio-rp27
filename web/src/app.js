@@ -42,9 +42,9 @@
       {id:"j3",t:"20:30",n:"Llegada a casa",p:"Diez minutos andando desde Termini. Dejamos maletas y salimos.",fx:1},
       {id:"j4",t:"21:00",n:"Primera cena en Monti",p:"La elegimos entre los dos en «Lo decidimos entre los dos».",hl:1,lat:41.89412,lon:12.48945,q:"Via della Madonna dei Monti, Roma",dx:-10,dy:-10,a:"end"},
       {id:"j5",t:"22:30",n:"Piazza della Madonna dei Monti",p:"La plaza con fuente donde se junta el barrio por la noche.",lat:41.8946,lon:12.4908,q:"Piazza della Madonna dei Monti, Roma",dx:10,dy:-10},
-      {id:"j6",t:"23:00",n:"Coliseo iluminado",p:"Bajando por Via dei Fori Imperiales, con los Foros a los lados. Sin gente y con luz dorada.",hl:1,k:"colnoche",lat:41.8902,lon:12.4922,q:"Colosseo, Roma",dx:12,dy:16}],
+      {id:"j6",t:"23:00",n:"Coliseo iluminado",p:"Bajando por Via dei Fori Imperiali, con los Foros a los lados. Sin gente y con luz dorada.",hl:1,k:"colnoche",lat:41.8902,lon:12.4922,q:"Colosseo, Roma",dx:12,dy:16}],
     viernes:[
-      {id:"v1",t:"09:00",n:"Coliseo",p:"Primera franja, con entrada reservada, antes de que llegue la gente.",hl:1,k:"colosseo",lat:41.8902,lon:12.4922,q:"Colosseo, Roma",dx:12,dy:14},
+      {id:"v1",t:"09:00",n:"Coliseo",p:"Con entrada reservada a primera hora (abre a las 8:30), antes de que llegue la gente. Cierra a las 16:30.",hl:1,k:"colosseo",lat:41.8902,lon:12.4922,q:"Colosseo, Roma",dx:12,dy:14},
       {id:"v2",t:"10:30",n:"Palatino y Foro Romano",p:"Incluidos en la misma entrada. Subimos primero al Palatino: desde arriba se ve todo el Foro.",lat:41.8908,lon:12.4864,q:"Foro Romano, Roma",dx:8,dy:22},
       {id:"v3",t:"12:30",n:"Campidoglio",p:"La plaza que diseñó Miguel Ángel. Detrás, una terraza con la mejor vista gratis del Foro.",lat:41.8934,lon:12.4828,q:"Piazza del Campidoglio, Roma",dx:12,dy:14},
       {id:"v4",t:"13:00",n:"Vittoriano",p:"El gran monumento blanco de Piazza Venezia. Sus escalinatas se suben gratis.",k:"vittoriano",lat:41.8946,lon:12.4831,q:"Vittoriano, Roma",dx:6,dy:-14},
@@ -58,7 +58,7 @@
       {id:"s1",t:"06:40",n:"Andando a Termini",p:"Diez minutos desde casa.",fx:1},
       {id:"s2",t:"07:00",n:"Frecciarossa a Nápoles",p:"Unos 70 minutos. Cappuccino a bordo.",fx:1},
       {id:"s3",t:"08:30",n:"Circumvesuviana a Pompei Scavi",p:"Unos 35 minutos desde Napoli Garibaldi.",fx:1},
-      {id:"s4",t:"09:30",n:"Pompeya",p:"Por Porta Marina: Foro, termas, la Casa del Fauno, el anfiteatro y los moldes de yeso, con el Vesubio de fondo. Cierra a las 17:00.",hl:1,fx:1},
+      {id:"s4",t:"09:30",n:"Pompeya",p:"Por Porta Marina: Foro, termas, la Casa del Fauno, el anfiteatro y los moldes de yeso, con el Vesubio de fondo. Cierra a las 17:00 y el último acceso es a las 15:30.",hl:1,fx:1},
       {id:"s5",t:"14:30",n:"Vuelta a Nápoles",p:"Circumvesuviana hasta Garibaldi.",fx:1},
       {id:"s6",t:"15:30",n:"Spaccanapoli",p:"La calle recta que parte en dos el centro histórico. Ropa tendida, motos y altarcitos en cada esquina.",lat:40.8484,lon:14.2550,q:"Spaccanapoli, Napoli"},
       {id:"s7",t:"16:15",n:"Via San Gregorio Armeno",p:"La calle de los belenes artesanos, abiertos todo el año.",lat:40.8507,lon:14.2577,q:"Via San Gregorio Armeno, Napoli"},
@@ -68,14 +68,14 @@
       {id:"d1",t:"07:40",n:"Metro A hasta Ottaviano",p:"Desde Vittorio Emanuele, delante de casa.",fx:1},
       {id:"d2",t:"08:00",n:"Plaza y Basílica de San Pedro",p:"Abre a las 7:00 y a esa hora casi no hay cola. La Piedad de Miguel Ángel, a la derecha al entrar.",hl:1,k:"sanpietro",lat:41.9022,lon:12.4539,q:"Basilica di San Pietro",dx:0,dy:24,a:"middle"},
       {id:"d3",t:"09:45",n:"Castel Sant'Angelo",p:"Por Via della Conciliazione y el Ponte Sant'Angelo, el puente de los ángeles de Bernini.",lat:41.9031,lon:12.4663,q:"Castel Sant'Angelo, Roma",dx:12,dy:-8},
-      {id:"d4",t:"11:00",n:"Gianicolo",p:"Subida al mirador con toda Roma a los pies, cúpula a cúpula.",k:"gianicolo",lat:41.8913,lon:12.4613,q:"Terrazza del Gianicolo, Roma",dx:-12,dy:4,a:"end"},
-      {id:"d5",t:"12:00",n:"Trastevere",p:"Santa Maria in Trastevere y sus mosaicos dorados, callejuelas con hiedra.",hl:1,k:"trastevere",lat:41.8894,lon:12.4703,q:"Piazza di Santa Maria in Trastevere",dx:-6,dy:22,a:"middle"},
+      {id:"d4",t:"11:30",n:"Gianicolo",p:"Subida al mirador con toda Roma a los pies, cúpula a cúpula.",k:"gianicolo",lat:41.8913,lon:12.4613,q:"Terrazza del Gianicolo, Roma",dx:-12,dy:4,a:"end"},
+      {id:"d5",t:"12:30",n:"Trastevere",p:"Santa Maria in Trastevere y sus mosaicos dorados, callejuelas con hiedra.",hl:1,k:"trastevere",lat:41.8894,lon:12.4703,q:"Piazza di Santa Maria in Trastevere",dx:-6,dy:22,a:"middle"},
       {id:"d6",t:"13:30",n:"Comida en Trastevere",p:"Carbonara de despedida.",lat:41.8894,lon:12.4703,q:"Trastevere, Roma"},
       {id:"d7",t:"15:00",n:"Isola Tiberina y Boca de la Verdad",p:"La isla en mitad del Tíber y, al otro lado, la máscara donde meter la mano.",k:"isola",lat:41.8906,lon:12.4775,q:"Isola Tiberina, Roma",dx:10,dy:-10},
       {id:"d8",t:"16:00",n:"Fontana di Trevi",p:"Moneda de espaldas a la fuente. Acercarse al borde cuesta 2 € hasta las 22:00; después es gratis.",hl:1,k:"trevi",lat:41.9009,lon:12.4833,q:"Fontana di Trevi, Roma",dx:12,dy:4},
       {id:"d9",t:"16:45",n:"Piazza di Spagna",p:"Los 135 escalones de la Escalinata hasta Trinità dei Monti.",k:"spagna",lat:41.9058,lon:12.4823,q:"Piazza di Spagna, Roma",dx:12,dy:6},
       {id:"d10",t:"17:30",n:"Atardecer en el Pincio",p:"La terraza sobre Piazza del Popolo. La última foto del viaje.",hl:1,k:"pincio",lat:41.9113,lon:12.4778,q:"Terrazza del Pincio, Roma",dx:-12,dy:-8,a:"end"},
-      {id:"d11",t:"Noche",n:"Vuelo de vuelta",p:"Leonardo Express desde Termini con margen.",fx:1}]
+      {id:"d11",t:"Noche",n:"Vuelo de vuelta",p:"Leonardo Express desde Termini con margen: el último sale a las 23:05.",fx:1}]
   };
   function clone(o){return JSON.parse(JSON.stringify(o));}
   function itin(day){var m=(typeof mine==="object"&&mine)||{},a=m["it_"+day];return clone(Array.isArray(a)?a:PLAN_DEF[day]);}
@@ -169,6 +169,12 @@
       el("circle",{cx:q[0],cy:q[1],r:11,fill:col},g);
       var n=el("text",{x:q[0],y:q[1]+.5,"class":"n"},g);n.textContent=i+1;drawn.push({x:q[0],y:q[1],n:n,c:g.querySelector("circle")});
       var l=el("text",{x:q[0]+(p.dx||12),y:q[1]+(p.dy||4),"text-anchor":p.a||"start","class":"l"},g);l.textContent=p.n;});
+    /* Encuadre: acercar el mapa a las paradas del día (sin pasarse de zoom) */
+    if(v!==CITY)svg.setAttribute("viewBox","0 0 600 480");else (function(){var qs=pts.map(function(p){return proj(v,p.lat,p.lon);});var xs=qs.map(function(q){return q[0];}),ys=qs.map(function(q){return q[1];});
+      var x0=Math.min.apply(0,xs)-250,x1=Math.max.apply(0,xs)+220,y0=Math.min.apply(0,ys)-60,y1=Math.max.apply(0,ys)+90;
+      var w=Math.max(x1-x0,480),h=Math.max(y1-y0,384);if(w/h>1.25)h=w/1.25;else w=h*1.25;
+      var cx=(x0+x1)/2,cy=(y0+y1)/2;svg.setAttribute("viewBox",(cx-w/2).toFixed(1)+" "+(cy-h/2).toFixed(1)+" "+w.toFixed(1)+" "+h.toFixed(1));
+      var bg=svg.querySelector("rect");if(bg){bg.setAttribute("x",-2000);bg.setAttribute("y",-2000);bg.setAttribute("width",5000);bg.setAttribute("height",5000);}})();
     document.getElementById("map-title").textContent=D.t;document.getElementById("map-sub").textContent=D.sub;
     list.innerHTML="";
     D.stops.forEach(function(p,i){var li=document.createElement("li"),a=document.createElement("a");a.href=gm(p.q);a.target="_blank";a.rel="noopener";
@@ -184,7 +190,7 @@
 
   /* ---------- Decisions ---------- */
   var DEC=[
-    {k:"cena",when:"Jueves · 21:30",t:"Primera cena en Roma",o:[
+    {k:"cena",when:"Jueves · 21:00",t:"Primera cena en Roma",o:[
       {k:"taverna",n:"Taverna Romana",s:"Trattoria clásica de Monti, pequeña y siempre llena. Hay que reservar.",q:"Taverna Romana, Via della Madonna dei Monti 79, Roma"},
       {k:"taglio",n:"Pizza al taglio y paseo",s:"Algo rápido por Monti y a dar una vuelta hasta el Coliseo iluminado."},
       {k:"casa",n:"Cena tranquila en casa",s:"Embutido, queso y vino de un alimentari del barrio, sin prisas."}]},
@@ -220,9 +226,9 @@
         Object.keys(all).forEach(function(id){var c=all[id]&&all[id][dc.k];if(c!==op.k)return;var pf=profiles[id]||{};
           var s=document.createElement("span");s.style.background=pf.color||"var(--rosso)";s.textContent=pf.isMe?"Tú":initials(pf.name||"");s.title=pf.isMe?"Tu elección":(pf.name||"Alguien");if(pf.isMe)s.style.fontSize="10px";who.appendChild(s);});
         b.addEventListener("click",function(){choose(dc.k,op.k);});
-        box.appendChild(b);
-        var a=document.createElement("button");a.type="button";a.className="opt-more";a.textContent="Ver fotos y más información ›";a.setAttribute("aria-label","Más información sobre "+op.n);
-        a.addEventListener("click",function(){openOpt(dc.k,op.k);});box.appendChild(a);
+        var row=document.createElement("div");row.className="opt-row";row.appendChild(b);
+        var a=document.createElement("button");a.type="button";a.className="opt-info";a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>Info</span>';a.setAttribute("aria-label","Fotos y más información sobre "+op.n);
+        a.addEventListener("click",function(){openOpt(dc.k,op.k);});row.appendChild(a);box.appendChild(row);
       });
       host.appendChild(box);
     });
@@ -244,10 +250,10 @@
   var IDEAS=[
     {k:"colosseo",c:["top"],n:"Coliseo, Foro y Palatino",d:"El corazón de la Roma antigua. Una sola entrada para los tres, con hora reservada.",lat:41.8902,lon:12.4922,price:"Entrada con reserva",plan:"vie"},
     {k:"colnoche",c:["noche","gratis"],n:"Coliseo iluminado",d:"De noche, sin gente y con luz dorada. Se baja por Via dei Fori Imperiali.",lat:41.8902,lon:12.4922,price:"Gratis",plan:"jue"},
-    {k:"vaticani",c:["top","arte","lluvia"],n:"Museos Vaticanos y Capilla Sixtina",d:"Tres o cuatro horas de arte hasta llegar al techo de Miguel Ángel. Mejor con reserva.",lat:41.9065,lon:12.4536,price:"De pago, con reserva"},
+    {k:"vaticani",c:["top","arte","lluvia"],n:"Museos Vaticanos y Capilla Sixtina",d:"Tres o cuatro horas de arte hasta llegar al techo de Miguel Ángel. Con reserva; el domingo 28 abren gratis de 9 a 14 h, sin reserva y con mucha cola.",lat:41.9065,lon:12.4536,price:"De pago, con reserva"},
     {k:"sanpietro",c:["top","arte","gratis"],n:"Basílica de San Pedro",d:"La Piedad de Miguel Ángel y el baldaquino de Bernini. A primera hora casi no hay cola.",lat:41.9022,lon:12.4539,price:"Gratis",plan:"dom"},
     {k:"cupola",c:["vistas"],n:"Subir a la cúpula de San Pedro",d:"551 escalones, o ascensor hasta la mitad, y Roma entera desde arriba.",lat:41.9022,lon:12.4539,price:"De pago"},
-    {k:"pantheon",c:["top","arte","lluvia"],n:"Panteón",d:"Casi 1.900 años y la cúpula sigue abierta al cielo. Si llueve, la lluvia cae dentro.",lat:41.8986,lon:12.4769,price:"5 €",plan:"vie"},
+    {k:"pantheon",c:["top","arte","lluvia"],n:"Panteón",d:"Casi 1.900 años y la cúpula sigue abierta al cielo. Si llueve, la lluvia cae dentro.",lat:41.8986,lon:12.4769,price:"7 €",plan:"vie"},
     {k:"trevi",c:["top","noche"],n:"Fontana di Trevi",d:"Moneda de espaldas para volver. El borde cuesta 2 € hasta las 22:00; después es gratis y hay menos gente.",lat:41.9009,lon:12.4833,price:"2 € (gratis desde las 22:00)",plan:"dom"},
     {k:"navona",c:["top","gratis"],n:"Piazza Navona",d:"La Fuente de los Cuatro Ríos de Bernini, sobre el antiguo estadio de Domiciano.",lat:41.8992,lon:12.4731,price:"Gratis",plan:"vie"},
     {k:"spagna",c:["top","gratis"],n:"Piazza di Spagna y la Escalinata",d:"135 escalones hasta Trinità dei Monti. Sentarse en ellos está prohibido.",lat:41.9058,lon:12.4823,price:"Gratis",plan:"dom"},
@@ -259,8 +265,8 @@
     {k:"maggiore",c:["arte","gratis"],n:"Santa Maria Maggiore",d:"Mosaicos dorados del siglo V a cinco minutos de casa.",lat:41.8976,lon:12.4984,price:"Gratis"},
     {k:"ignazio",c:["arte","gratis","lluvia"],n:"Sant'Ignazio",d:"Una cúpula que no existe: está pintada. Mírala desde el disco del suelo.",lat:41.8991,lon:12.4799,price:"Gratis"},
     {k:"cappuccini",c:["arte","lluvia"],n:"Cripta de los Capuchinos",d:"Capillas decoradas con huesos de frailes. Curiosa y un poco tétrica.",lat:41.9045,lon:12.4885,price:"De pago"},
-    {k:"domus",c:["arte"],n:"Domus Aurea",d:"El palacio de Nerón, bajo tierra. Solo con visita guiada y reserva.",lat:41.8912,lon:12.4957,price:"De pago, con reserva"},
-    {k:"caracalla",c:["arte"],n:"Termas de Caracalla",d:"Las termas romanas más grandes que se conservan, con mosaicos en el suelo.",lat:41.8790,lon:12.4924,price:"De pago"},
+    {k:"domus",c:["arte"],n:"Domus Aurea",d:"El palacio de Nerón, bajo tierra. Abre de viernes a domingo, con reserva.",lat:41.8912,lon:12.4957,price:"De pago, con reserva"},
+    {k:"caracalla",c:["arte"],n:"Termas de Caracalla",d:"Unas de las termas romanas mejor conservadas, con mosaicos en el suelo.",lat:41.8790,lon:12.4924,price:"De pago"},
     {k:"argentina",c:["gratis"],n:"Largo di Torre Argentina",d:"Donde mataron a Julio César. Hoy, templos y una colonia de gatos.",lat:41.8954,lon:12.4768,price:"Gratis"},
     {k:"aventino",c:["vistas","gratis"],n:"La cerradura del Aventino",d:"San Pedro enmarcado en el ojo de una cerradura, en Piazza dei Cavalieri di Malta.",lat:41.8830,lon:12.4785,price:"Gratis"},
     {k:"aranci",c:["vistas","gratis"],n:"Giardino degli Aranci",d:"Naranjos y uno de los mejores atardeceres de Roma, junto a la cerradura.",lat:41.8848,lon:12.4795,price:"Gratis"},
@@ -315,7 +321,7 @@
   var EXTRA={
     colosseo:{l:"El anfiteatro más grande del mundo romano: 50.000 espectadores, luchas de gladiadores y cacerías de fieras. Con la misma entrada se visita el Foro, el centro político de Roma, y el Palatino, la colina donde vivían los emperadores.",dur:"3–4 horas",best:"A primera hora",tip:"Subid primero al Palatino: desde arriba se entiende todo el Foro y hay menos gente.",q:"Colosseum interior arena Rome"},
     colnoche:{l:"Por la noche el Coliseo se ilumina por dentro y por fuera y la avenida de los Foros Imperiales se queda casi vacía. Es el mejor paseo para la primera noche.",dur:"45 minutos",best:"Después de cenar",tip:"Bajad por Via dei Fori Imperiali y volved por Via Cavour: es un círculo perfecto desde casa.",q:"Colosseum night Rome"},
-    vaticani:{l:"Kilómetros de galerías con esculturas clásicas, mapas pintados y las Estancias de Rafael, hasta llegar a la Capilla Sixtina con el techo y el Juicio Final de Miguel Ángel.",dur:"3–4 horas",best:"Primera hora, con entrada reservada",tip:"En la Capilla Sixtina no se puede hablar ni hacer fotos. Mirad el techo de la entrada hacia el altar: la historia va en orden.",q:"Vatican Museums gallery maps"},
+    vaticani:{l:"Kilómetros de galerías con esculturas clásicas, mapas pintados y las Estancias de Rafael, hasta llegar a la Capilla Sixtina con el techo y el Juicio Final de Miguel Ángel.",dur:"3–4 horas",best:"Primera hora, con entrada reservada",tip:"En la Capilla Sixtina no se puede hablar ni hacer fotos. La historia del Génesis empieza sobre el altar y avanza hacia la puerta del fondo.",q:"Vatican Museums gallery maps"},
     sanpietro:{l:"La iglesia más grande de la cristiandad, en la plaza abrazada por la columnata de Bernini. Dentro están la Piedad de Miguel Ángel y el baldaquino de bronce.",dur:"1–2 horas",best:"A las 7–8 de la mañana",tip:"Hay control de seguridad: con hombros y rodillas cubiertos no hay problema.",q:"St. Peter's Basilica interior"},
     cupola:{l:"Se sube por dentro de la cúpula de Miguel Ángel, pasando por la galería interior con los mosaicos a un palmo, hasta el mirador más alto de Roma.",dur:"1 hora",best:"Por la mañana",tip:"El tramo final es estrecho e inclinado. Con el ascensor os ahorráis la primera mitad.",q:"view from St. Peter's dome"},
     pantheon:{l:"Un templo romano de casi 1.900 años que sigue en pie y en uso. La cúpula, con su óculo abierto, fue la más grande del mundo durante siglos. Aquí está enterrado Rafael.",dur:"30–45 minutos",best:"Al mediodía, cuando el rayo de sol entra por el óculo",tip:"Justo enfrente, en Piazza della Rotonda, se toma un buen café de pie.",q:"Pantheon Rome oculus"},
@@ -330,7 +336,7 @@
     maggiore:{l:"Una de las cuatro basílicas mayores de Roma, con mosaicos del siglo V y un techo dorado con, según la tradición, el primer oro llegado de América.",dur:"30–45 minutos",best:"Por la mañana",tip:"Es la iglesia más cercana a casa: se puede entrar de paso.",q:"Santa Maria Maggiore Rome mosaics"},
     ignazio:{l:"Una iglesia barroca con un techo pintado por Andrea Pozzo que parece abrirse al cielo. La cúpula no existe: es una pintura plana.",dur:"20 minutos",best:"Cualquier momento",tip:"Buscad el disco de mármol en el suelo de la nave y mirad la cúpula desde ahí.",q:"Sant'Ignazio Rome ceiling"},
     cappuccini:{l:"Varias capillas decoradas con los huesos de miles de frailes capuchinos, ordenados como si fueran adornos. Hay un pequeño museo antes.",dur:"45 minutos",best:"Cualquier momento",tip:"No es para todos los gustos. Está cerca de Via Veneto.",q:"Capuchin Crypt Rome"},
-    domus:{l:"El palacio que se construyó Nerón después del incendio de Roma, enterrado bajo las termas de Trajano. Se recorren salas con frescos que inspiraron a Rafael.",dur:"1,5 horas",best:"Visita guiada reservada",tip:"Solo abre con visita guiada y no todos los días: hay que mirar fechas antes.",q:"Domus Aurea Rome"},
+    domus:{l:"El palacio que se construyó Nerón después del incendio de Roma, enterrado bajo las termas de Trajano. Se recorren salas con frescos que inspiraron a Rafael.",dur:"1,5 horas",best:"Visita guiada reservada",tip:"Abre de viernes a domingo y hay que reservar. Merece la pena la visita guiada con realidad virtual.",q:"Domus Aurea Rome"},
     caracalla:{l:"Unas termas gigantes del siglo III donde se bañaban miles de romanos a la vez. Quedan muros enormes y mosaicos en el suelo.",dur:"1,5 horas",best:"Por la mañana",tip:"Es de los sitios más tranquilos de Roma, ideal para descansar del gentío.",q:"Baths of Caracalla mosaics"},
     argentina:{l:"Una plaza hundida con cuatro templos republicanos. Aquí estaba la curia donde mataron a Julio César, y hoy viven decenas de gatos cuidados por voluntarios.",dur:"15 minutos",best:"De paso hacia el Panteón",tip:"Se ve desde la barandilla, no hace falta entrar.",q:"Largo di Torre Argentina"},
     aventino:{l:"En la puerta de la sede de los Caballeros de Malta, al mirar por el ojo de la cerradura, la cúpula de San Pedro aparece enmarcada en un jardín.",dur:"20 minutos",best:"Por la mañana, antes de que se forme cola",tip:"Combinadlo con el Giardino degli Aranci, a dos minutos.",q:"Piazza dei Cavalieri di Malta"},
@@ -343,7 +349,7 @@
     ghetto:{l:"Uno de los barrios judíos más antiguos de Europa, junto a las ruinas del Pórtico de Octavia. Aquí se comen las alcachofas a la judía, fritas y crujientes.",dur:"1–2 horas con comida",best:"A la hora de comer",tip:"En febrero es temporada de alcachofas: es el mejor momento para probarlas.",q:"Jewish Ghetto Rome Portico d'Ottavia"},
     testaccio:{l:"Un mercado de barrio con puestos de comida romana para picar: supplì, panini de bollito, pasta fresca. Lo frecuentan más romanos que turistas.",dur:"1 hora",best:"A mediodía",tip:"Cerrado los domingos. El barrio de alrededor es el Testaccio más auténtico.",q:"Mercato di Testaccio"},
     pasta:{l:"Una clase práctica para hacer pasta fresca a mano (fettuccine, ravioli) y tiramisú, y luego comer lo que habéis cocinado con vino.",dur:"3 horas",best:"Una tarde o un día de lluvia",tip:"Se reserva online. Es un buen plan si un día llueve.",q:"handmade pasta cooking class"},
-    margutta:{l:"Una calle tranquila y cubierta de hiedra, llena de talleres de artistas y galerías. Aquí vivía Gregory Peck en 'Vacaciones en Roma'.",dur:"20 minutos",best:"De paso hacia Plaza de España",tip:"Busca el número 51, la casa de la película.",q:"Via Margutta Rome"},
+    margutta:{l:"Una calle tranquila y cubierta de hiedra, llena de talleres de artistas y galerías. Aquí vivía Gregory Peck en 'Vacaciones en Roma'.",dur:"20 minutos",best:"De paso hacia Plaza de España",tip:"Buscad el número 51, la casa de la película.",q:"Via Margutta Rome"},
     coppede:{l:"Un pequeño barrio de los años 20 con edificios de cuento: arcos, lámparas de hierro, torres y la Fuente de las Ranas. Casi nadie lo conoce.",dur:"45 minutos",best:"Por la mañana",tip:"Queda algo alejado: mejor en bus o taxi desde casa.",q:"Quartiere Coppedè Rome"},
     isola:{l:"La única isla del Tíber, unida por puentes romanos, y al otro lado la Boca de la Verdad, una máscara antigua que según la leyenda muerde la mano de los mentirosos.",dur:"45 minutos",best:"A media tarde",tip:"En la Boca de la Verdad hay cola: id temprano o conformaos con mirarla desde la verja.",q:"Bocca della Verità Rome"},
     appia:{l:"La 'reina de las calzadas', construida en el 312 a. C. Se recorre entre pinos, tumbas y acueductos, y bajo ella están las catacumbas cristianas.",dur:"Medio día",best:"Domingo por la mañana, cuando se cierra al tráfico",tip:"Alquilad bicis eléctricas en el centro de visitantes.",q:"Appian Way Rome"},
@@ -408,22 +414,19 @@
     list.forEach(function(i){
       var a=document.createElement("article");a.className="idea";
       var catName=(CATS.filter(function(c){return c[0]===i.c[0];})[0]||[])[1]||"";
-      a.innerHTML='<div class="ph"><img loading="lazy" alt=""><button class="wish" type="button">'+heart+'</button></div><div class="bd"><span class="cat"></span><h3></h3><p></p><div class="meta"></div><div class="foot"><span class="both"></span><a class="maplink" target="_blank" rel="noopener">Ver en el mapa ↗</a></div></div>';
+      a.innerHTML='<div class="ph"><img loading="lazy" alt=""><button class="wish" type="button">'+heart+'</button></div><div class="bd"><span class="cat"></span><h3><button class="idea-open" type="button"></button></h3><p></p><div class="meta"></div><div class="foot"><span class="both"></span><span class="go" aria-hidden="true">›</span></div></div>';
       var img=a.querySelector("img");img.src="p-"+i.k+".jpg";img.alt=i.n;
-      a.querySelector(".cat").textContent=catName;a.querySelector("h3").textContent=i.n;a.querySelector("p").textContent=i.d;
+      a.querySelector(".cat").textContent=catName;a.querySelector(".idea-open").textContent=i.n;a.querySelector("p").textContent=i.d;
       var meta=a.querySelector(".meta"),wm=walkMin(i.lat,i.lon);
       meta.textContent=(i.far?i.far:(wm>45?"En metro o bus":wm+" min andando"))+" · "+i.price;
       var dp=dayOf(i.k);if(dp){var ip=document.createElement("span");ip.className="inplan";ip.style.background=DAYC[dp][1];ip.textContent="En el plan · "+DAYC[dp][0];a.querySelector(".ph").appendChild(ip);}
-      a.querySelector(".maplink").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(i.n+", Roma");
       var w=a.querySelector(".wish"),key="w_"+i.k;w.setAttribute("aria-pressed",!!mine[key]);
       w.setAttribute("aria-label",(mine[key]?"Quitar":"Me apetece")+": "+i.n);
       var others=Object.keys(all).filter(function(id){return id!==uid&&all[id]&&all[id][key];});
       if(others.length){var pf=profiles[others[0]]||{};a.querySelector(".both").textContent=(mine[key]?"Os apetece a los dos":"A "+((pf.name||"").split(" ")[0]||"la otra persona")+" le apetece");}
       w.addEventListener("click",function(){if(mine[key])delete mine[key];else mine[key]="1";if(uid){all[uid]=Object.assign({},mine);}lastPop=key;render();save();});
       if(lastPop===key){w.classList.add("pop");lastPop=null;}
-      a.tabIndex=0;a.setAttribute("role","button");a.setAttribute("aria-label","Ver más sobre "+i.n);
-      a.addEventListener("click",function(ev){if(ev.target.closest(".wish")||ev.target.closest("a"))return;openDetail(i.k);});
-      a.addEventListener("keydown",function(ev){if((ev.key==="Enter"||ev.key===" ")&&ev.target===a){ev.preventDefault();openDetail(i.k);}});
+      a.addEventListener("click",function(ev){if(ev.target.closest(".wish"))return;openDetail(i.k);});
       var both=a.querySelector(".both");if(!both.textContent){both.textContent="Ver más";both.className="more-hint";}
       ibox.appendChild(a);});
   }
@@ -479,8 +482,8 @@
     /* Fotos de la casa */
     var gfs=[].slice.call(document.querySelectorAll(".gallery figure"));
     var gl=gfs.map(function(f){var im=f.querySelector("img");return {u:im.getAttribute("src"),c:(f.querySelector("figcaption")||{}).textContent||"",s:"Nuestra casa en Roma"};});
-    gfs.forEach(function(f,i){f.setAttribute("role","button");f.tabIndex=0;f.setAttribute("aria-label","Ampliar foto: "+gl[i].c);
-      f.addEventListener("click",function(){openViewer(gl,i);});f.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openViewer(gl,i);}});});
+    gfs.forEach(function(f,i){var hit=document.createElement("button");hit.type="button";hit.className="zoom-hit";hit.setAttribute("aria-label","Ampliar foto: "+gl[i].c);
+      hit.addEventListener("click",function(){openViewer(gl,i);});f.appendChild(hit);});
     /* Fotos de la ficha de cada plan */
     document.getElementById("sh-img").classList.add("zoomable");
     function sheetList(){var l=[{u:document.getElementById("sh-img").src,c:document.getElementById("sh-title").textContent}];
@@ -517,8 +520,8 @@
         li.innerHTML='<time></time><span class="dot"></span><div class="st"><b></b><p></p></div>';
         li.querySelector("time").textContent=it.t;li.querySelector("b").textContent=it.n;
         if(it.p)li.querySelector("p").textContent=it.p;else li.querySelector("p").remove();
-        if(!ed&&it.k&&idea(it.k)){li.classList.add("go");li.tabIndex=0;li.setAttribute("role","button");li.setAttribute("aria-label",it.t+", "+it.n+". Ver más");
-          li.addEventListener("click",function(){openDetail(it.k);});li.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();openDetail(it.k);}});}
+        if(!ed&&it.k&&idea(it.k)){li.classList.add("go");var bb=li.querySelector("b"),ob=document.createElement("button");ob.type="button";ob.className="st-open";ob.textContent=it.n;ob.setAttribute("aria-label",it.n+": ver fotos y más información");bb.textContent="";bb.appendChild(ob);
+          li.addEventListener("click",function(e){if(e.target.closest(".st-edit"))return;openDetail(it.k);});}
         if(ed&&it.fx)li.classList.add("fixed");
         if(ed&&!it.fx){var row=document.createElement("div");row.className="st-edit";
           row.innerHTML='<label><span class="vh">Hora de </span><input type="time" step="300"></label><button type="button" class="chg">Cambiar</button><button type="button" class="rm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span class="vh">Quitar</span></button>';
@@ -632,7 +635,7 @@
     {k:"cacio",reg:"Roma",n:"Cacio e pepe",s:"Pasta, pecorino y pimienta negra. Tres ingredientes.",l:"Solo pecorino romano, pimienta negra recién molida y el agua de cocer la pasta. Parece fácil y es de lo más difícil de bordar: tiene que quedar una crema, sin grumos.",where:"Felice a Testaccio · Via Mastro Giorgio 29",mq:"Felice a Testaccio, Roma",price:"12–16 €",when:"Comida o cena",tip:"En Felice la mezclan delante de vosotros, en la mesa.",c:"Cacio e pepe",q:"cacio e pepe pasta"},
     {k:"amatriciana",reg:"Roma",n:"Amatriciana",s:"Tomate, guanciale y pecorino, con bucatini.",l:"La salsa roja de Roma: tomate, guanciale y pecorino, casi siempre con bucatini, unos espaguetis gruesos y huecos. Sabrosa y un poco picante.",where:"Armando al Pantheon · Salita de' Crescenzi 31",mq:"Armando al Pantheon, Roma",price:"14–18 €",when:"Comida",tip:"Armando es pequeño y familiar: reservad con días de antelación.",c:"Bucatini all'amatriciana",q:"amatriciana pasta"},
     {k:"carciofi",reg:"Roma",n:"Alcachofa a la judía",s:"Frita entera, crujiente como una flor.",l:"La alcachofa se fríe entera hasta que se abre como una flor dorada y crujiente. Es el plato estrella del Gueto judío y febrero es plena temporada.",where:"Nonna Betta · Via del Portico d'Ottavia 16",mq:"Nonna Betta, Roma",price:"8–10 €",when:"Comida en el Gueto",tip:"Pedid también la alcachofa 'alla romana', guisada: así comparáis.",c:"Carciofi alla giudia",q:"carciofi alla giudia"},
-    {k:"suppli",reg:"Roma",n:"Supplì",s:"Croqueta de arroz con mozzarella que se estira.",l:"Una croqueta de arroz con tomate y un corazón de mozzarella que, al partirla, se estira como el hilo de un teléfono. Por eso en Roma la llaman 'supplì al telefono'.",where:"Supplì Roma · Via di San Francesco a Ripa 137",mq:"Supplì Roma, Via di San Francesco a Ripa 137",price:"2–3 €",when:"Para picar en Trastevere",tip:"Comedlo recién hecho y de pie, como los romanos.",c:"Supplì",q:"suppli roman rice ball"},
+    {k:"suppli",reg:"Roma",n:"Supplì",s:"Croqueta de arroz con mozzarella que se estira.",l:"Una croqueta de arroz con tomate y un corazón de mozzarella que, al partirla, se estira como el hilo de un teléfono. Por eso en Roma la llaman 'supplì al telefono'.",where:"Supplì Roma · Via di San Francesco a Ripa 137",mq:"Supplì Roma, Via di San Francesco a Ripa 137",price:"2–3 €",when:"De lunes a sábado (el domingo cierra)",tip:"Comedlo recién hecho y de pie, como los romanos. Si vais en domingo, en Trastevere hay más tiendas de supplì abiertas.",c:"Supplì",q:"suppli roman rice ball"},
     {k:"taglio",reg:"Roma",n:"Pizza al taglio",s:"Pizza por porciones, al peso, para comer andando.",l:"Pizza en bandejas rectangulares que se corta con tijera y se paga al peso. Masa alta y crujiente y mil sabores. El tentempié perfecto entre visita y visita.",where:"Antico Forno Roscioli · Via dei Chiavari 34",mq:"Antico Forno Roscioli, Roma",price:"3–6 €",when:"A media mañana",tip:"Pedid la 'pizza rossa' sencilla: solo tomate. Es la más romana.",c:"Pizza al taglio",q:"pizza al taglio Rome"},
     {k:"maritozzo",reg:"Roma",n:"Maritozzo",s:"Bollo tierno relleno de nata, para desayunar.",l:"Un bollo dulce y esponjoso abierto por la mitad y relleno hasta arriba de nata montada. Antes los novios lo regalaban con un anillo escondido dentro.",where:"Pasticceria Regoli · Via dello Statuto 60",mq:"Pasticceria Regoli, Roma",price:"3–5 €",when:"Desayuno",tip:"Regoli está a cinco minutos de casa: desayuno perfecto antes del Coliseo.",c:"Maritozzi",q:"maritozzo con la panna"},
     {k:"cornetto",reg:"Roma",n:"Cappuccino y cornetto",s:"El desayuno romano, de pie en la barra.",l:"Un cappuccino espumoso y un cornetto, el cruasán italiano, más dulce y tierno. Se toma de pie en la barra en cinco minutos. Después de las 11, los italianos ya solo piden espresso.",where:"Sant'Eustachio Il Caffè · junto al Panteón",mq:"Sant'Eustachio Il Caffè, Roma",price:"3–4 €",when:"Desayuno",tip:"En la barra cuesta la mitad que sentados en la mesa.",c:"Cappuccino",q:"cappuccino cornetto Italian breakfast"},
@@ -643,6 +646,7 @@
     {k:"sfogliatella",reg:"Nápoles",n:"Sfogliatella",s:"Hojaldre crujiente con ricotta y naranja.",l:"Un dulce en forma de concha hecho con capas finísimas de hojaldre que crujen al morder, relleno de ricotta, sémola y piel de naranja. Mejor templada.",where:"Sfogliatella Mary · Galleria Umberto I",mq:"Sfogliatella Mary, Napoli",price:"2–3 €",when:"Antes del tren de vuelta",tip:"Hay dos tipos: 'riccia' (crujiente) y 'frolla' (de masa quebrada). Probad la riccia.",c:"Sfogliatelle",q:"sfogliatella"},
     {k:"baba",reg:"Nápoles",n:"Babà",s:"Bizcocho borracho de ron, muy napolitano.",l:"Un bizcocho esponjoso en forma de seta empapado en almíbar de ron. Tan napolitano que, para decir que algo es maravilloso, dicen 'è nu babbà'.",where:"Gran Caffè Gambrinus · Via Chiaia 1",mq:"Gran Caffè Gambrinus, Napoli",price:"3–5 €",when:"Con un café",tip:"Gambrinus es el café histórico de Nápoles: merece la pena entrar a verlo.",c:"Babà",q:"baba au rhum Napoli"}
   ];
+  ["carbonara","cacio","amatriciana","carciofi","suppli","taglio","maritozzo","cornetto","tiramisu","gelato","sfogliatella"].forEach(function(k){FOOD.forEach(function(f){if(f.k===k)f.img="food/"+k+".jpg";});});
   FOOD.forEach(function(f){INFO["food-"+f.k]={n:f.n,cat:"Qué probar · "+f.reg,s:f.s,l:f.l,img:f.img,cover:{c:f.c,q:f.q},
     facts:[["Dónde probarlo",f.where],["Precio aprox.",f.price],["Cuándo",f.when],["Dónde",f.reg]],tip:f.tip,mq:f.mq,route:f.reg==="Roma"?f.mq:null,gq:f.q};});
   (function(){var box=document.getElementById("dishes");if(!box)return;
@@ -655,7 +659,7 @@
 
   /* ---------- Info de las opciones a decidir ---------- */
   var OPTX={
-    taverna:{l:"Trattoria pequeña y de toda la vida en Monti, a unos diez minutos de casa. Cocina romana clásica: carbonara, amatriciana, cacio e pepe y alcachofas en temporada. Ambiente de barrio, manteles y vino de la casa.",f:[["Dónde","Via della Madonna dei Monti 79"],["Desde casa","Unos 10 min andando"],["Precio aprox.","25–35 € por persona"],["Ojo","Hay que reservar"]],tip:"Llamad o reservad en cuanto tengáis la hora del vuelo: es pequeña y se llena.",cover:{c:"Spaghetti alla carbonara",q:"trattoria Roma"},gq:"Rione Monti Rome street",route:"Taverna Romana, Via della Madonna dei Monti 79, Roma"},
+    taverna:{l:"Trattoria pequeña y de toda la vida en Monti, a unos 18 minutos de casa. Cocina romana clásica: carbonara, amatriciana, cacio e pepe y alcachofas en temporada. Ambiente de barrio, manteles y vino de la casa.",f:[["Dónde","Via della Madonna dei Monti 79"],["Desde casa","Unos 18 min andando"],["Precio aprox.","25–35 € por persona"],["Ojo","Hay que reservar"]],tip:"Llamad o reservad en cuanto tengáis la hora del vuelo: es pequeña y se llena.",cover:{c:"Spaghetti alla carbonara",q:"trattoria Roma"},gq:"Rione Monti Rome street",route:"Taverna Romana, Via della Madonna dei Monti 79, Roma"},
     taglio:{l:"Pizza por porciones y al peso para ir comiendo por Monti y bajar después al Coliseo iluminado. Rápido, barato y sin estar pendientes de la hora.",f:[["Precio aprox.","5–10 € por persona"],["Tiempo","Lo que queráis"],["Ventaja","Más rato para pasear"]],tip:"Señalad el trozo y decid 'un pezzo così' con las manos: se paga por peso.",cover:{c:"Pizza al taglio",q:"pizza al taglio"},gq:"pizza al taglio Rome"},
     casa:{l:"Pasar por una tienda del barrio, comprar embutido, queso, pan y una botella de vino y cenar tranquilos en el porche de casa. La opción más relajada para la primera noche.",f:[["Precio aprox.","15–25 € para los dos"],["Dónde","En nuestro porche"],["Ventaja","Sin prisas ni reservas"]],tip:"Pedid 'un etto' (100 g) de cada cosa: mortadela, prosciutto y un pecorino.",img:"casa-porche.jpg",gq:"Italian salumi cheese board"},
     dimatteo:{l:"Una de las pizzerías históricas de Via dei Tribunali. Además de la pizza, es famosa por la frittatina, una croqueta de pasta frita que venden por la ventanilla a la calle.",f:[["Dónde","Via dei Tribunali 94"],["Precio aprox.","5–10 € por pizza"],["Ambiente","Ruidoso y auténtico"]],tip:"Apuntaos en la lista nada más llegar y mientras esperáis, una frittatina.",cover:{q:"Antica Pizzeria Di Matteo"},gq:"Via dei Tribunali Napoli"},
@@ -663,10 +667,12 @@
     sorbillo:{l:"La pizzería más famosa de la calle: pizzas enormes que se salen del plato, masa muy fina y borde altísimo. Siempre hay cola, pero va rápida.",f:[["Dónde","Via dei Tribunali 32"],["Precio aprox.","5–12 € por pizza"],["Ambiente","Mucha gente y mucha vida"]],tip:"Al lado está Zia Esterina, de la misma familia, con la pizza frita para llevar.",cover:{q:"Sorbillo pizzeria Napoli"},gq:"Sorbillo Napoli"},
     castel:{l:"Empezó siendo el mausoleo del emperador Adriano, luego fue fortaleza y cárcel de los papas, unida al Vaticano por un pasadizo secreto. Arriba, una terraza con el ángel de bronce y una de las mejores vistas del río y de San Pedro.",f:[["Precio","De pago"],["Tiempo","1,5 horas"],["Mejor momento","Por la mañana"]],tip:"La terraza de arriba es donde se desarrolla el último acto de la ópera Tosca.",cover:{c:"Castel Sant'Angelo",q:"Castel Sant'Angelo Rome"},gq:"Castel Sant'Angelo",route:"Castel Sant'Angelo, Roma"},
     fuera:{l:"Ver San Pedro, Castel Sant'Angelo y el resto por fuera, sin colas ni entradas, y dedicar ese tiempo a perderse por Trastevere y subir con calma al Gianicolo.",f:[["Precio","Gratis"],["Ventaja","Más paseo, menos colas"],["Ideal si","Hace buen tiempo"]],tip:"Es el día de despedida: a veces lo mejor es no correr.",img:"p-trastevere.jpg",gq:"Trastevere Rome"},
-    angeletto:{l:"Una gelatería pequeña de Monti, cerca de la plaza del barrio. Sabores clásicos muy bien hechos: pistacho, avellana, chocolate.",f:[["Dónde","Monti, junto a la plaza"],["Desde casa","Unos 10 min andando"],["Precio aprox.","3–5 €"]],tip:"Perfecta después de la primera cena en Monti.",cover:{c:"Gelato",q:"gelato gelateria"},gq:"gelato Rome"},
-    fatamorgana:{l:"Gelato artesano con sabores originales y naturales, sin gluten: chocolate con tabaco, pera y gorgonzola, basilico... y también los clásicos.",f:[["Dónde","Piazza degli Zingari 5, Monti"],["Desde casa","Unos 10 min andando"],["Precio aprox.","3–5 €"]],tip:"Dejad que os den a probar con la cucharilla antes de elegir.",cover:{q:"Fatamorgana gelato"},gq:"gelato Rome"},
-    comeillatte:{l:"Gelato muy cremoso, hecho con leche fresca, y un detalle: el cucurucho se baña por dentro en chocolate caliente o se corona con nata.",f:[["Dónde","Via Silvio Spaventa, cerca de Termini"],["Desde casa","Unos 15 min andando"],["Precio aprox.","3–5 €"]],tip:"Pedid el cucurucho con chocolate negro por dentro.",cover:{c:"Gelato",q:"gelato cone chocolate"},gq:"gelato cone"}
+    angeletto:{l:"Una gelatería pequeña de Monti, cerca de la plaza del barrio. Sabores clásicos muy bien hechos: pistacho, avellana, chocolate.",f:[["Dónde","Monti, junto a la plaza"],["Desde casa","Unos 15 min andando"],["Precio aprox.","3–5 €"]],tip:"Perfecta después de la primera cena en Monti.",cover:{c:"Gelato",q:"gelato gelateria"},gq:"gelato Rome"},
+    fatamorgana:{l:"Gelato artesano con sabores originales y naturales, sin gluten: chocolate con tabaco, pera y gorgonzola, basilico... y también los clásicos.",f:[["Dónde","Piazza degli Zingari 5, Monti"],["Desde casa","Unos 15 min andando"],["Precio aprox.","3–5 €"]],tip:"Dejad que os den a probar con la cucharilla antes de elegir.",cover:{q:"Fatamorgana gelato"},gq:"gelato Rome"},
+    comeillatte:{l:"Gelato muy cremoso, hecho con leche fresca, y un detalle: el cucurucho se baña por dentro en chocolate caliente o se corona con nata.",f:[["Dónde","Via Silvio Spaventa, cerca de Termini"],["Desde casa","Unos 20 min andando"],["Precio aprox.","3–5 €"]],tip:"Pedid el cucurucho con chocolate negro por dentro.",cover:{c:"Gelato",q:"gelato cone chocolate"},gq:"gelato cone"}
   };
+  var OPTIMG={taverna:"food/monti.jpg",taglio:"food/taglio.jpg",dimatteo:"food/tribunali.jpg",donnasofia:"food/margherita2.jpg",sorbillo:"food/sorbillo.jpg",castel:"food/castel.jpg",angeletto:"food/gelato.jpg",fatamorgana:"food/gelato.jpg",comeillatte:"food/gelato.jpg"};
+  Object.keys(OPTIMG).forEach(function(k){if(OPTX[k])OPTX[k].img=OPTIMG[k];});
   function openOpt(dk,ok){if(ok==="cupula"){openDetail("cupola");return;}
     var dc=DEC.filter(function(x){return x.k===dk;})[0],op=dc&&dc.o.filter(function(x){return x.k===ok;})[0],x=OPTX[ok]||{};if(!op)return;
     var id="opt-"+ok;INFO[id]={n:op.n,cat:dc.t,s:op.s,l:x.l||op.s,img:x.img,cover:x.cover||{q:op.n},facts:x.f||[],tip:x.tip,mq:op.q,route:x.route||null,gq:x.gq||op.n,vote:[dk,ok]};

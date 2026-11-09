@@ -477,3 +477,38 @@ footer small a{color:var(--muted)}
 @keyframes zoom{from{transform:scale(1.08)}to{transform:none}}
 @keyframes rise{from{transform:translateY(14px);opacity:.5}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- Revisión: accesibilidad y acabado ---------- */
+@media (max-width:820px){.panel-hero .num{display:none}}
+@media (max-width:560px){
+  .map .stop text.l{font-size:20px;stroke-width:6px}
+  .map .stop text.n{font-size:15px}
+  .map .lbl-water{font-size:20px}
+  .idea p{-webkit-line-clamp:2!important}
+  .idea .foot{padding-top:8px}
+}
+.idea-open,.st-open{all:unset;cursor:pointer;font:inherit;color:inherit;line-height:inherit}
+.idea-open:focus-visible,.st-open:focus-visible{outline:2px solid var(--ocra);outline-offset:3px;border-radius:4px}
+.idea .foot .go{font-size:22px;line-height:1;color:var(--rosso)}
+.steps li.go b::after{content:none}
+.st-open::after{content:"›";margin-left:6px;color:var(--rosso);font-weight:600}
+.gallery figure{cursor:zoom-in}
+.zoom-hit{position:absolute;inset:0;z-index:2;border:0;background:transparent;cursor:zoom-in;border-radius:inherit}
+.zoom-hit:focus-visible{outline:3px solid var(--ocra);outline-offset:-3px}
+.opt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}
+.opt-info{border:0;border-radius:var(--r-md);background:transparent;box-shadow:inset 0 0 0 1.5px var(--hair);color:var(--rosso);font:inherit;font-size:12px;font-weight:600;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:58px;cursor:pointer}
+.opt-info svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.opt-info:active{background:color-mix(in srgb,var(--rosso) 8%,transparent)}
+.credits{max-width:760px;margin:0 auto;text-align:center}
+.credits summary{cursor:pointer;color:var(--muted);font-size:14px;list-style:none;padding:8px;display:inline-block}
+.credits summary::-webkit-details-marker{display:none}
+.credits summary::after{content:" ▾"}
+.credits[open] summary::after{content:" ▴"}
+.credits small{display:block;margin-top:8px}
+
+.dish .ph img{position:relative;z-index:1}
+@media (max-width:560px){
+  .map{display:flex;flex-direction:column}
+  .map-badge{position:static;order:-1;text-align:left;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;padding:14px 16px 4px}
+}
