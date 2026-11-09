@@ -53,4 +53,6 @@ BASE=http://127.0.0.1:8787 npm test  # pruebas de la API (con la base de datos v
 4. Lanzar el flujo **Desplegar en Cloudflare** (o hacer un `push`). Crea la base de datos, aplica las migraciones y publica.
 5. Abrir la dirección que aparece en el resumen del flujo y crear el viaje.
 
+App: https://viaggio.jlopezjordi.workers.dev
+
 Fotos: anuncio de Airbnb de la anfitriona y Wikimedia Commons (autores y licencias en el pie de la app).
