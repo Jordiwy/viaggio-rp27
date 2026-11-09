@@ -89,3 +89,20 @@ test("solo el organizador crea enlaces nuevos, y el viejo deja de valer", async 
   assert.equal((await call("GET", "/api/state", r.data.token)).status, 200);
   guest = r.data.token;
 });
+
+test("la sorpresa: cerrada para ella hasta la fecha, editable solo por el organizador", async () => {
+  const locked = await call("GET", "/api/surprise", guest);
+  assert.equal(locked.data.locked, true);
+  assert.equal(locked.data.place, undefined);                       // el servidor no manda el contenido
+  const own = await call("GET", "/api/surprise", owner);
+  assert.equal(own.data.locked, false); assert.equal(own.data.isOwner, true);
+  assert.equal((await call("PUT", "/api/surprise", guest, { title: "x", place: "y", address: "", time: "", dress: "", body: "" })).status, 403);
+  assert.equal((await call("POST", "/api/surprise/reaction", guest, { reaction: "love" })).status, 423);
+  const put = await call("PUT", "/api/surprise", owner, { title: "Cena", place: "Aroma", address: "Via Labicana 125", time: "Viernes", dress: "Elegante", body: "Hola", unlockAt: Date.now() - 1000 });
+  assert.equal(put.status, 200);
+  const open = await call("GET", "/api/surprise", guest);
+  assert.equal(open.data.place, "Aroma");
+  assert.equal((await call("POST", "/api/surprise/reaction", guest, { reaction: "change", note: "Mejor pizza" })).status, 200);
+  const seen = await call("GET", "/api/surprise", owner);
+  assert.equal(seen.data.reaction.reaction, "change"); assert.equal(seen.data.reaction.note, "Mejor pizza");
+});

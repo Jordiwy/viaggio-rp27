@@ -88,6 +88,7 @@ async function boot() {
   }
 
   await import("./app.js");
+  await import("./surprise.js");
   document.body.classList.remove("booting");
   $("boot").hidden = true;
   account();

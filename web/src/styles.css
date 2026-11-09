@@ -512,3 +512,28 @@ footer small a{color:var(--muted)}
   .map{display:flex;flex-direction:column}
   .map-badge{position:static;order:-1;text-align:left;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;padding:14px 16px 4px}
 }
+
+/* ---------- Sorpresa revelada ---------- */
+.reveal{grid-column:1/-1;background:rgba(255,250,244,.72);border-radius:var(--r-md);padding:22px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;color:var(--ink)}
+.reveal.in{animation:unseal .7s cubic-bezier(.2,.7,.2,1)}
+@keyframes unseal{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.reveal-t{font-family:var(--f-italic);font-style:italic;font-weight:600;letter-spacing:0;font-size:clamp(28px,6vw,40px);line-height:1.1}
+.reveal-place{font-size:17px}
+.reveal-body{font-size:18px;line-height:1.55}
+.reveal-dress{font-size:16px;color:var(--muted)}
+.reveal .btn{align-self:flex-start}
+.reveal-react{border-top:1px solid color-mix(in srgb,var(--sec-acc) 25%,transparent);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.reveal-q{font-weight:600;font-size:18px}
+.reveal .gate-btn[aria-pressed="true"]{outline:3px solid var(--sec-acc);outline-offset:2px}
+.reveal-note{display:flex;flex-direction:column;gap:6px;font-weight:600}
+.reveal-note textarea{font:inherit;font-weight:400;padding:12px;border:0;border-radius:var(--r-sm);box-shadow:0 0 0 1px var(--frame);background:#FFFCF8}
+.reveal-ok{color:var(--cipresso);font-size:15px;min-height:1em}
+.reveal-answer{font-size:17px;font-weight:600}
+.reveal-answer.love{color:var(--cipresso)}
+.reveal-answer.change{color:var(--rosso)}
+.reveal-preview{border:1px dashed color-mix(in srgb,var(--sec-acc) 40%,transparent);border-radius:var(--r-sm);padding:16px;display:flex;flex-direction:column;gap:10px}
+.reveal-hint{font-size:15px;color:var(--rosso)}
+.reveal-edit summary{cursor:pointer;font-weight:600;color:var(--rosso);padding:6px 0}
+.reveal-edit textarea{font:inherit;font-size:16px;padding:12px;border:0;border-radius:var(--r-sm);box-shadow:0 0 0 1px var(--frame);background:#FFFCF8;color:var(--ink)}
+.seal.opened{transform:rotate(-12deg) scale(.92);opacity:.75}
+.reveal-edit textarea,.reveal-note textarea{font-weight:400}

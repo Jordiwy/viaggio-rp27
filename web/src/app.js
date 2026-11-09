@@ -706,14 +706,6 @@
     function upd(){var y=window.scrollY+window.innerHeight*0.35,cur=null;links.forEach(function(l){var el=document.getElementById(l.dataset.sec);if(el&&el.offsetTop<=y)cur=l;});links.forEach(function(l){l.classList.toggle("on",l===cur);});}
     window.addEventListener("scroll",upd,{passive:true});upd();})();
 
-  /* ---------- Seal ---------- */
-  var seal=document.getElementById("seal"),msg=document.getElementById("seal-msg");
-  var opens=new Date("2027-02-26T19:30:00+01:00").getTime();
-  var lines=["Todavía no. Paciencia.","Nada de trampas.","Sellado hasta el viernes 26 a las 19:30."],li=0;
-  seal.addEventListener("click",function(){
-    if(Date.now()>=opens){msg.innerHTML='<span class="letter">Esta noche eres mi invitada. Vamos.</span>';seal.disabled=true;seal.style.opacity=.6;return;}
-    seal.classList.remove("shake");void seal.offsetWidth;seal.classList.add("shake");msg.textContent=lines[li++%lines.length];});
-
   /* ---------- Pack list ---------- */
   var saved=Sync.packing;
   var boxes=[].slice.call(document.querySelectorAll("#pack input")),prog=document.getElementById("progress");
@@ -736,6 +728,7 @@
       case "itinerary":var t=(d.summary||"ha cambiado el plan");if(me)t=t.replace(/^ha /,"has ");return w+" "+t+" el "+dayName(d.day);
       case "itinerary_reset":return w+(me?" has vuelto":" ha vuelto")+" al plan original del "+dayName(d.day);
       case "note":return w+(me?" has escrito":" ha escrito")+" en las notas";
+      case "surprise_reaction":return w+(me?" has respondido a la sorpresa":" ha respondido a la sorpresa")+(d.reaction==="love"?" ❤":"");
     }return w+" ha hecho un cambio";}
   function renderFeed(){var ul=document.getElementById("feed");if(!ul)return;var acts=(Sync.state&&Sync.state.activity)||[];ul.innerHTML="";
     if(!acts.length){ul.innerHTML='<li class="feed-empty">Aquí aparecerá lo que vaya cambiando cada uno.</li>';return;}

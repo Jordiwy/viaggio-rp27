@@ -4,6 +4,7 @@ import {
   COLORS, DAYS, type Env, type Member,
   itinerarySchema, keySchema, nameSchema, newId, newToken, noteSchema,
   packSchema, setupSchema, sha256, voteSchema, wishSchema,
+  surpriseSchema, reactionSchema, DEFAULT_UNLOCK, SURPRISE_DRAFT,
 } from "./lib";
 
 type Vars = { me: Member };
@@ -221,6 +222,64 @@ app.put("/api/packing/:item", async (c) => {
     `INSERT INTO packing (member_id, item, done, updated_at) VALUES (?, ?, ?, ?)
      ON CONFLICT (member_id, item) DO UPDATE SET done = excluded.done, updated_at = excluded.updated_at`,
   ).bind(me.id, item, b.done ? 1 : 0, now()).run();
+  return c.json({ ok: true });
+});
+
+/* ---------- Noche sorpresa ---------- */
+
+type SurpriseRow = {
+  title: string; place: string; address: string; time: string; dress: string; body: string;
+  unlock_at: number; updated_at: number; reaction: string | null; reaction_note: string | null; reacted_by: string | null; reacted_at: number | null;
+};
+
+async function surpriseRow(env: Env, tripId: string): Promise<SurpriseRow> {
+  const r = await env.DB.prepare("SELECT * FROM surprise WHERE trip_id = ?").bind(tripId).first<SurpriseRow>();
+  return r ?? { ...SURPRISE_DRAFT, unlock_at: DEFAULT_UNLOCK, updated_at: 0, reaction: null, reaction_note: null, reacted_by: null, reacted_at: null };
+}
+
+/** El organizador la ve siempre; el resto, solo a partir de la fecha de apertura (lo decide el servidor). */
+app.get("/api/surprise", async (c) => {
+  const me = c.get("me"), r = await surpriseRow(c.env, me.trip_id);
+  const open = now() >= r.unlock_at;
+  if (me.role !== "owner" && !open) return c.json({ locked: true, unlockAt: r.unlock_at });
+  return c.json({
+    locked: false, isOwner: me.role === "owner", open, unlockAt: r.unlock_at, draft: r.updated_at === 0,
+    title: r.title, place: r.place, address: r.address, time: r.time, dress: r.dress, body: r.body,
+    reaction: r.reaction ? { reaction: r.reaction, note: r.reaction_note, by: r.reacted_by, at: r.reacted_at } : null,
+  });
+});
+
+app.put("/api/surprise", async (c) => {
+  const me = c.get("me");
+  if (me.role !== "owner") throw new HttpError(403, "forbidden", "Solo el organizador puede editar la sorpresa.");
+  const b = await body(c, surpriseSchema);
+  const unlock = b.unlockAt ?? (await surpriseRow(c.env, me.trip_id)).unlock_at;
+  await c.env.DB.batch([
+    c.env.DB.prepare(
+      `INSERT INTO surprise (trip_id, title, place, address, time, dress, body, unlock_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT (trip_id) DO UPDATE SET title = excluded.title, place = excluded.place, address = excluded.address,
+       time = excluded.time, dress = excluded.dress, body = excluded.body, unlock_at = excluded.unlock_at, updated_at = excluded.updated_at`,
+    ).bind(me.trip_id, b.title, b.place, b.address, b.time, b.dress, b.body, unlock, now()),
+    ...bump(c.env, me, null, null),
+  ]);
+  return c.json({ ok: true });
+});
+
+app.post("/api/surprise/reaction", async (c) => {
+  const me = c.get("me"), r = await surpriseRow(c.env, me.trip_id);
+  if (me.role === "owner") throw new HttpError(403, "forbidden", "La respuesta es para quien recibe la sorpresa.");
+  if (now() < r.unlock_at) throw new HttpError(423, "locked", "Todavía está cerrada.");
+  const b = await body(c, reactionSchema);
+  await c.env.DB.batch([
+    c.env.DB.prepare(
+      `INSERT INTO surprise (trip_id, title, place, address, time, dress, body, unlock_at, updated_at, reaction, reaction_note, reacted_by, reacted_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT (trip_id) DO UPDATE SET reaction = excluded.reaction, reaction_note = excluded.reaction_note,
+       reacted_by = excluded.reacted_by, reacted_at = excluded.reacted_at`,
+    ).bind(me.trip_id, r.title, r.place, r.address, r.time, r.dress, r.body, r.unlock_at, r.updated_at || now(),
+      b.reaction, b.note ?? null, me.id, now()),
+    ...bump(c.env, me, "surprise_reaction", { reaction: b.reaction }),
+  ]);
   return c.json({ ok: true });
 });
 

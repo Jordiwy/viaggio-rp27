@@ -77,3 +77,25 @@ export const setupSchema = z.object({
   owner: text(40).min(1),
   guest: text(40).min(1),
 });
+
+export const surpriseSchema = z.object({
+  title: text(80).min(1),
+  place: text(80).min(1),
+  address: text(160),
+  time: text(40),
+  dress: text(160),
+  body: z.string().trim().max(2000),
+  unlockAt: z.number().int().min(0).optional(),
+});
+export const reactionSchema = z.object({ reaction: z.enum(["love", "change"]), note: z.string().trim().max(600).optional() });
+
+/** 1 de enero de 2027, 00:00 en Madrid. */
+export const DEFAULT_UNLOCK = Date.parse("2027-01-01T00:00:00+01:00");
+export const SURPRISE_DRAFT = {
+  title: "Cena de gala con el Coliseo delante",
+  place: "Aroma",
+  address: "Palazzo Manfredi, Via Labicana 125, Roma",
+  time: "Viernes 26 · salimos de casa a las 19:30",
+  dress: "Elegante. Un abrigo bonito: por la noche refresca.",
+  body: "Una terraza en lo alto del Palazzo Manfredi, con el Coliseo iluminado justo delante. Cocina italiana de estrella Michelin y un menú degustación para tomarlo con calma. Si no te apetece o prefieres otra cosa, dímelo aquí abajo: hay tiempo de sobra para cambiarlo.",
+};
