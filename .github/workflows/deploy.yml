@@ -55,7 +55,12 @@ jobs:
       - name: Publicar
         id: deploy
         run: |
+          set -o pipefail
           npx wrangler deploy 2>&1 | tee deploy.log
+          if grep -q "register a workers.dev subdomain" deploy.log; then
+            echo "::error::Falta elegir el subdominio workers.dev: Cloudflare → Workers & Pages → elige un nombre."
+            exit 1
+          fi
           URL=$(grep -oE 'https://[a-zA-Z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "### La app está en $URL" >> "$GITHUB_STEP_SUMMARY"
