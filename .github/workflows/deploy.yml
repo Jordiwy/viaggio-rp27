@@ -68,5 +68,9 @@ jobs:
       - name: Comprobar que responde
         if: steps.deploy.outputs.url != ''
         run: |
-          sleep 5
-          curl -fsS "${{ steps.deploy.outputs.url }}/api/health"
+          # Un subdominio nuevo tarda unos minutos en tener certificado.
+          for i in $(seq 1 30); do
+            if curl -fsS "${{ steps.deploy.outputs.url }}/api/health"; then exit 0; fi
+            sleep 10
+          done
+          exit 1
